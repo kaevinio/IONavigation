@@ -11,7 +11,6 @@ public struct Sidebar<Content: View>: View {
     public var body: some View {
         HStack(spacing: 0) {
             SidebarContent(selectedIndex: $selectedIndex, title: title, tabs: tabs, color: color, projectImage: $projectImage, projectTitle: $projectTitle, projectAction: projectAction)
-                .padding(.horizontal, 16)
                 .background(.regularMaterial)
                 .frame(maxHeight: .infinity)
                 .frame(width: Values.sidebarWidth)

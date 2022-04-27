@@ -9,8 +9,8 @@ import SwiftUI
 public struct SidebarContent: View {
     
     public var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
+        VStack(alignment: .leading, spacing: 0) {
+            HStack(spacing: 0) {
                 Text(title)
                     .font(.system(size: 18, weight: .semibold))
                     .frame(height: Values.navigationBarHeight)
@@ -27,13 +27,12 @@ public struct SidebarContent: View {
                 }
                 .frame(width: 60, height: 20)
             }
-            .padding(.horizontal, Values.minorPadding)
+            .padding(.horizontal, Values.middlePadding / 2)
             #if os(iOS)
             .padding(.top, Values.minorPadding)
             #else
             .padding(.top, Values.middlePadding)
             #endif
-            
             
             ScrollView {
                 ForEach(tabs, id: \.index) { tab in
@@ -51,6 +50,7 @@ public struct SidebarContent: View {
                 .padding(.bottom, Values.middlePadding)
         }
         .frame(maxWidth: .infinity)
+        .padding(.horizontal, Values.middlePadding)
     }
     
     

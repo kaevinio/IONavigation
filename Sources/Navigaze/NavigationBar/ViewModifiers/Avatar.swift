@@ -8,32 +8,55 @@
 import SwiftUI
 
 public struct Avatar: ViewModifier {
-    let image: Image
-    let action: () -> Void
-    
     
     public func body(content: Content) -> some View {
-        HStack(alignment: .center) {
+        HStack(alignment: .bottom, spacing: 0) {
             content
             
-            Spacer()
-            
-            Button(action: action) {
-                image
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: Values.itemSize, height: Values.itemSize)
-                    .clipShape(Circle())
+            VStack(alignment: .center, spacing: 0) {
+                Button(action: action) {
+                    image
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: Values.itemSize, height: Values.itemSize)
+                        .clipShape(Circle())
+                        .overlay(
+                            Circle()
+                                .stroke(isHovering ? color : .clear, lineWidth: 1)
+                        )
+                        .onHover { hovering in
+                            self.isHovering = hovering
+                        }
+                }
+                .buttonStyle(.plain)
+                .frame(height: Values.navigationBarHeight)
+                .padding(.trailing, Values.middlePadding)
+                
+                Divider()
             }
-            .buttonStyle(.plain)
+            .frame(width: Values.navigationBarHeight)
+            #if os(iOS)
+            .padding(.top, Values.minorPadding)
+            #else
+            .padding(.top, Values.middlePadding)
+            #endif
         }
-        .frame(height: Values.navigationBarHeight)
-        .padding(.trailing, Values.middlePadding)
     }
+    
+    
+    
+    // MARK: - Variables
+    
+    @State var isHovering = false
+    
+    let image: Image
+    let color: Color
+    let action: () -> Void
+    
 }
 
 extension View {
-    public func avatar(image: Image, action: @escaping () -> Void) -> some View {
-        modifier(Avatar(image: image, action: action))
+    public func avatar(image: Image, color: Color, action: @escaping () -> Void) -> some View {
+        modifier(Avatar(image: image, color: color, action: action))
     }
 }

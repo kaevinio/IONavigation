@@ -3,6 +3,7 @@
 //
 //  Created by Kevin Waltz on 22.04.22.
 //
+
 import SwiftUI
 
 public struct CustomNavigationBar: View {
@@ -12,19 +13,25 @@ public struct CustomNavigationBar: View {
     }
     
     public var body: some View {
-        HStack {
-            Text(title)
-                .font(.system(size: 18, weight: .semibold))
-                .frame(height: Values.navigationBarHeight)
-                #if os(iOS)
-                .padding(.top, Values.minorPadding)
-                #else
-                .padding(.top, Values.middlePadding)
-                #endif
+        VStack(spacing: 0) {
+            HStack(spacing: 0) {
+                Text(title)
+                    .font(.system(size: Values.navigationTextSize, weight: .semibold))
+                    .frame(height: Values.navigationBarHeight)
+                    .lineLimit(1)
+                    
+                Spacer()
+            }
+            .padding(.leading, Values.middlePadding)
+            .padding(.trailing, Values.minorPadding)
             
-            Spacer()
+            Divider()
         }
-        .padding(.horizontal, Values.middlePadding)
+        #if os(iOS)
+        .padding(.top, Values.minorPadding)
+        #else
+        .padding(.top, Values.middlePadding)
+        #endif
     }
     
     

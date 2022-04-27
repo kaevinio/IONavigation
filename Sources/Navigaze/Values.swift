@@ -18,7 +18,10 @@ struct Values {
     
     static let sidebarWidth: CGFloat = 230
     static let tabbarHeight: CGFloat = 60
-    static let navigationBarHeight: CGFloat = 30
+    
+    static let navigationBarHeight: CGFloat = 44
+    static let navigationItemSize: CGFloat = 16
+    static let navigationTextSize: CGFloat = 18
     
     static let itemSize: CGFloat = 30
     static let iconSize: CGFloat = 16
@@ -34,7 +37,10 @@ struct Values {
     
     static let sidebarWidth: CGFloat = 250
     static let tabbarHeight: CGFloat = 72
+    
     static let navigationBarHeight: CGFloat = 60
+    static let navigationItemSize: CGFloat = 18
+    static let navigationTextSize: CGFloat = 22
     
     static let itemSize: CGFloat = 36
     static let iconSize: CGFloat = 20

@@ -8,33 +8,57 @@
 import SwiftUI
 
 public struct NavigationItem: ViewModifier {
-    let image: Image
-    let imageColor: Color
-    let action: () -> Void
-    
     
     public func body(content: Content) -> some View {
-        HStack(alignment: .center) {
+        HStack(alignment: .bottom, spacing: 0) {
             content
             
-            Spacer()
-            
-            Button(action: action) {
-                image
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 18)
-                    .foregroundColor(imageColor)
+            VStack(alignment: .center, spacing: 0) {
+                Button(action: action) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: Values.cornerRadius)
+                            .frame(width: Values.itemSize, height: Values.itemSize)
+                            .foregroundColor(isHovering ? color.opacity(0.1) : .clear)
+                        
+                        image
+                            .resizable()
+                            .scaledToFit()
+                            .foregroundColor(color)
+                            .frame(width: Values.navigationItemSize, height: Values.navigationItemSize)
+                    }
+                }
+                .buttonStyle(.plain)
+                .frame(height: Values.navigationBarHeight)
+                .padding(.trailing, Values.middlePadding)
+                
+                Divider()
             }
-            .buttonStyle(.plain)
+            .frame(width: Values.navigationBarHeight)
+            #if os(iOS)
+            .padding(.top, Values.minorPadding)
+            #else
+            .padding(.top, Values.middlePadding)
+            #endif
+            .onHover { hovering in
+                self.isHovering = hovering
+            }
         }
-        .frame(height: Values.navigationBarHeight)
-        .padding(.trailing, Values.middlePadding)
     }
+    
+    
+    
+    // MARK: - Variables
+    
+    @State private var isHovering = false
+    
+    let image: Image
+    let color: Color
+    let action: () -> Void
+    
 }
 
 extension View {
-    public func navigationItem(image: Image, imageColor: Color, action: @escaping () -> Void) -> some View {
-        modifier(NavigationItem(image: image, imageColor: imageColor, action: action))
+    public func navigationItem(image: Image, color: Color, action: @escaping () -> Void) -> some View {
+        modifier(NavigationItem(image: image, color: color, action: action))
     }
 }
