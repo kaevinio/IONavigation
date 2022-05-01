@@ -45,9 +45,6 @@ public struct SidebarContent: View {
                 }
                 .padding(.top, Values.minorPadding)
             }
-            
-            ProjectView(icon: $projectImage, title: $projectTitle, size: Values.itemSize, color: color, action: projectAction)
-                .padding(.bottom, Values.middlePadding)
         }
         .frame(maxWidth: .infinity)
         .padding(.horizontal, Values.middlePadding)
@@ -62,9 +59,5 @@ public struct SidebarContent: View {
     public let title: String
     public let tabs: [TabModel]
     public let color: Color
-    
-    @Binding public var projectImage: Image
-    @Binding public var projectTitle: String
-    public var projectAction: () -> Void
     
 }

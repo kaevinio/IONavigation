@@ -10,7 +10,7 @@ public struct Sidebar<Content: View>: View {
     
     public var body: some View {
         HStack(spacing: 0) {
-            SidebarContent(selectedIndex: $selectedIndex, title: title, tabs: tabs, color: color, projectImage: $projectImage, projectTitle: $projectTitle, projectAction: projectAction)
+            SidebarContent(selectedIndex: $selectedIndex, title: title, tabs: tabs, color: color)
                 .background(.regularMaterial)
                 .frame(maxHeight: .infinity)
                 .frame(width: Values.sidebarWidth)
@@ -29,11 +29,6 @@ public struct Sidebar<Content: View>: View {
     public let color: Color
     
     @Binding public var selectedIndex: Int?
-    
-    @Binding public var projectImage: Image
-    @Binding public var projectTitle: String
-    public var projectAction: () -> Void
-    
     
     @ViewBuilder public let content: (Int) -> Content
     

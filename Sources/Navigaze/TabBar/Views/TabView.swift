@@ -11,32 +11,12 @@ public struct TabView<Content: View>: View {
     public var body: some View {
         #if os(iOS)
         if horizontalSizeClass == .compact {
-            Tabbar(tabs: tabs,
-                   color: color,
-                   selectedIndex: $selectedIndex,
-                   projectImage: $projectImage,
-                   projectTitle: $projectTitle,
-                   projectAction: projectAction,
-                   content: content)
+            Tabbar(tabs: tabs, color: color, selectedIndex: $selectedIndex, content: content)
         } else {
-            Sidebar(title: "UXlytics",
-                    tabs: tabs,
-                    color: color,
-                    selectedIndex: $selectedIndex,
-                    projectImage: $projectImage,
-                    projectTitle: $projectTitle,
-                    projectAction: projectAction,
-                    content: content)
+            Sidebar(title: "UXlytics", tabs: tabs, color: color, selectedIndex: $selectedIndex, content: content)
         }
         #else
-        Sidebar(title: "UXlytics",
-                tabs: tabs,
-                color: color,
-                selectedIndex: $selectedIndex,
-                projectImage: $projectImage,
-                projectTitle: $projectTitle,
-                projectAction: projectAction,
-                content: content)
+        Sidebar(title: "UXlytics", tabs: tabs, color: color, selectedIndex: $selectedIndex, content: content)
         #endif
     }
     
@@ -47,10 +27,6 @@ public struct TabView<Content: View>: View {
     #if os(iOS)
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     #endif
-    
-    @Binding public var projectImage: Image
-    @Binding public var projectTitle: String
-    public var projectAction: () -> Void
     
     public let tabs: [TabModel]
     public let color: Color

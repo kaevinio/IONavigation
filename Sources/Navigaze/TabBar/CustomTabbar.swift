@@ -8,32 +8,21 @@ import SwiftUI
 
 public struct CustomTabbar: View {
     
-    public init(projectImage: Binding<Image>,
-                projectTitle: Binding<String>,
-                projectAction: @escaping () -> Void,
-                tabItems: [TabModel],
-                color: Color) {
-        
-        self._projectImage = projectImage
-        self._projectTitle = projectTitle
-        self.projectAction = projectAction
+    public init(tabItems: [TabModel], color: Color) {
         self.tabItems = tabItems
         self.color = color
     }
     
     public var body: some View {
-        TabView(projectImage: $projectImage, projectTitle: $projectTitle, projectAction: projectAction, tabs: tabItems, color: color, selectedIndex: $selectedIndex) { index in
+        TabView(tabs: tabItems, color: color, selectedIndex: $selectedIndex) { index in
             tabItems[index].view
         }
+        .macWindowSize()
     }
     
     
     
     // MARK: - Variables
-    
-    @Binding public var projectImage: Image
-    @Binding public var projectTitle: String
-    public var projectAction: () -> Void
     
     public var tabItems: [TabModel]
     public let color: Color
