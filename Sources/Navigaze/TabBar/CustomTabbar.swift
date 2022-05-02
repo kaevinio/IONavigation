@@ -8,14 +8,17 @@ import SwiftUI
 
 public struct CustomTabbar: View {
     
-    public init(tabItems: [TabModel], color: Color) {
-        self.tabItems = tabItems
+    public init(title: String, tabGroups: [TabGroup], color: Color) {
+        self.title = title
+        self.tabGroups = tabGroups
         self.color = color
+        
+        self.selectedId = tabGroups.first?.tabs.first?.id ?? ""
     }
     
     public var body: some View {
-        TabView(tabs: tabItems, color: color, selectedIndex: $selectedIndex) { index in
-            tabItems[index].view
+        TabView(title: title, tabGroups: tabGroups, color: color, selectedId: $selectedId) { id in
+            tabGroups.flatMap { $0.tabs }.filter { $0.id == id }.first?.view
         }
         .macWindowSize()
     }
@@ -24,9 +27,10 @@ public struct CustomTabbar: View {
     
     // MARK: - Variables
     
-    public var tabItems: [TabModel]
+    public let title: String
+    public let tabGroups: [TabGroup]
     public let color: Color
     
-    @State private var selectedIndex: Int? = 0
+    @State private var selectedId: String
     
 }

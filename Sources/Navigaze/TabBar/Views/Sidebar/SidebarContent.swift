@@ -20,10 +20,11 @@ public struct SidebarContent: View {
                 
                 ZStack(alignment: .center) {
                     Capsule()
-                        .strokeBorder(Color.gray, lineWidth: Values.lineSize)
+                        .foregroundColor(color)
                     
                     Text("Beta")
                         .font(.system(size: 12, weight: .semibold))
+                        .foregroundColor(.white)
                 }
                 .frame(width: 60, height: 20)
             }
@@ -34,16 +35,30 @@ public struct SidebarContent: View {
             .padding(.top, Values.middlePadding)
             #endif
             
-            ScrollView {
-                ForEach(tabs, id: \.index) { tab in
-                    Button {
-                        self.selectedIndex = tab.index
-                    } label: {
-                        TabItem(item: tabs[tab.index], isSelected: selectedIndex == tab.index, color: color)
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: Values.majorPadding) {
+                    ForEach(tabGroups, id: \.id) { group in
+                        VStack(alignment: .leading, spacing: Values.minorPadding / 2) {
+                            Text(group.header)
+                                .font(.system(size: 12, weight: .medium))
+                                .foregroundColor(.gray)
+                                .padding(.leading, Values.middlePadding / 2)
+                            
+                            VStack(spacing: Values.middlePadding / 3) {
+                                ForEach(group.tabs, id: \.id) { tab in
+                                    Button {
+                                        self.selectedId = tab.id
+                                    } label: {
+                                        TabItem(item: tab, isSelected: selectedId == tab.id, color: color)
+                                    }
+                                    .buttonStyle(.plain)
+                                }
+                            }
+                        }
                     }
-                    .buttonStyle(.plain)
                 }
                 .padding(.top, Values.minorPadding)
+                .padding(.bottom, Values.majorPadding)
             }
         }
         .frame(maxWidth: .infinity)
@@ -54,10 +69,10 @@ public struct SidebarContent: View {
     
     // MARK: - Variables
     
-    @Binding public var selectedIndex: Int?
+    @Binding public var selectedId: String
     
     public let title: String
-    public let tabs: [TabModel]
+    public let tabGroups: [TabGroup]
     public let color: Color
     
 }

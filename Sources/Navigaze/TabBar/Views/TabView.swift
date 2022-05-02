@@ -11,12 +11,12 @@ public struct TabView<Content: View>: View {
     public var body: some View {
         #if os(iOS)
         if horizontalSizeClass == .compact {
-            Tabbar(tabs: tabs, color: color, selectedIndex: $selectedIndex, content: content)
+//            Tabbar(tabs: tabs, color: color, selectedIndex: $selectedIndex, content: content)
         } else {
-            Sidebar(title: "UXlytics", tabs: tabs, color: color, selectedIndex: $selectedIndex, content: content)
+            Sidebar(title: title, tabGroups: tabGroups, color: color, selectedId: $selectedId, content: content)
         }
         #else
-        Sidebar(title: "UXlytics", tabs: tabs, color: color, selectedIndex: $selectedIndex, content: content)
+        Sidebar(title: title, tabGroups: tabGroups, color: color, selectedId: $selectedId, content: content)
         #endif
     }
     
@@ -28,10 +28,11 @@ public struct TabView<Content: View>: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     #endif
     
-    public let tabs: [TabModel]
+    public let title: String
+    public let tabGroups: [TabGroup]
     public let color: Color
     
-    @Binding public var selectedIndex: Int?
-    @ViewBuilder public let content: (Int) -> Content
+    @Binding public var selectedId: String
+    @ViewBuilder public let content: (String) -> Content
     
 }

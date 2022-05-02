@@ -14,13 +14,22 @@ struct TabItem: View {
             TabIcon(image: item.image, color: color)
             
             Text(item.title)
+                #if os(iOS)
                 .font(.system(size: 16))
+                #else
+                .font(.system(size: 15))
+                #endif
                 .foregroundColor(.primary)
         }
         .padding(.horizontal, Values.minorPadding)
         .frame(maxWidth: .infinity, alignment: .leading)
         .frame(height: Values.buttonSize, alignment: .leading)
-        .background(isSelected || isHovering ? color.opacity(0.12) : .clear)
+        .background(.regularMaterial)
+        #if os(iOS)
+        .background(isSelected || isHovering ? color.opacity(0.5) : .clear)
+        #else
+        .background(isSelected || isHovering ? color.opacity(0.2) : .clear)
+        #endif
         .cornerRadius(Values.cornerRadius)
         .onHover { hovering in
             self.isHovering = hovering

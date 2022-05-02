@@ -10,12 +10,12 @@ public struct Sidebar<Content: View>: View {
     
     public var body: some View {
         HStack(spacing: 0) {
-            SidebarContent(selectedIndex: $selectedIndex, title: title, tabs: tabs, color: color)
+            SidebarContent(selectedId: $selectedId, title: title, tabGroups: tabGroups, color: color)
                 .background(.regularMaterial)
                 .frame(maxHeight: .infinity)
                 .frame(width: Values.sidebarWidth)
             
-            content(selectedIndex ?? 0)
+            content(selectedId)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
@@ -25,11 +25,11 @@ public struct Sidebar<Content: View>: View {
     // MARK: - Variables
     
     public let title: String
-    public let tabs: [TabModel]
+    public let tabGroups: [TabGroup]
     public let color: Color
     
-    @Binding public var selectedIndex: Int?
+    @Binding public var selectedId: String
     
-    @ViewBuilder public let content: (Int) -> Content
+    @ViewBuilder public let content: (String) -> Content
     
 }

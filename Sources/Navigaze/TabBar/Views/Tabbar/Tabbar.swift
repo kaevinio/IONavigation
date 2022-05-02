@@ -18,13 +18,13 @@ public struct Tabbar<Content: View>: View {
                 Divider()
                 
                 HStack {
-                    ForEach(tabs, id: \.index) { tab in
-                        Button {
-                            self.selectedIndex = tab.index
-                        } label: {
-                            TabItemCompact(item: tabs[tab.index], isSelected: selectedIndex == tab.index, color: color)
-                        }
-                    }
+//                    ForEach(tabs, id: \.index) { tab in
+//                        Button {
+//                            self.selectedIndex = tab.index
+//                        } label: {
+//                            TabItemCompact(item: tabs[tab.index], isSelected: selectedIndex == tab.index, color: color)
+//                        }
+//                    }
                 }
                 .frame(height: Values.tabbarHeight)
                 .padding(.horizontal, Values.middlePadding)
