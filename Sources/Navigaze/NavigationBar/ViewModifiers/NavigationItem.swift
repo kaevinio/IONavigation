@@ -18,7 +18,7 @@ public struct NavigationItem: ViewModifier {
                     ZStack {
                         RoundedRectangle(cornerRadius: Values.cornerRadius)
                             .frame(width: Values.itemSize, height: Values.itemSize)
-                            .foregroundColor(isHovering ? color.opacity(0.1) : .clear)
+                            .foregroundColor(isHovering ? color.opacity(0.1) : color.opacity(0))
                         
                         image
                             .resizable()
