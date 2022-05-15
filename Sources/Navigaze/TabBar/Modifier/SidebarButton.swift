@@ -11,17 +11,17 @@ public struct SidebarButton: ViewModifier {
     
     public func body(content: Content) -> some View {
         #if os(macOS)
-        VStack(alignment: .leading, spacing: 0) {
+        ZStack(alignment: .bottomLeading) {
             content
             
             AdditionalButton(icon: icon, title: title, color: color, action: action)
                 .frame(width: Values.sidebarWidth - Values.middlePadding * 2, height: Values.buttonSize)
                 .padding(.horizontal, Values.middlePadding)
                 .padding(.bottom, Values.middlePadding)
-                .background(.regularMaterial)
         }
+        .ignoresSafeArea(.all, edges: .bottom)
         #else
-        VStack(alignment: .leading, spacing: 0) {
+        ZStack(alignment: .bottomLeading) {
             content
             
             if horizontalSizeClass == .regular {
@@ -29,9 +29,9 @@ public struct SidebarButton: ViewModifier {
                     .frame(width: Values.sidebarWidth - Values.middlePadding * 2, height: Values.buttonSize)
                     .padding(.horizontal, Values.middlePadding)
                     .padding(.bottom, Values.middlePadding)
-                    .background(.regularMaterial)
             }
         }
+        .ignoresSafeArea(.all, edges: .bottom)
         #endif
     }
     

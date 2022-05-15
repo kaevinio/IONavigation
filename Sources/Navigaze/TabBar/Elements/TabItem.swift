@@ -24,9 +24,9 @@ struct TabItem: View {
         .padding(.horizontal, Values.minorPadding)
         .frame(maxWidth: .infinity, alignment: .leading)
         .frame(height: Values.buttonSize, alignment: .leading)
-        .background(.regularMaterial)
+        .background(.white.opacity(0.00001))
         #if os(iOS)
-        .background(isSelected || isHovering ? color.opacity(0.5) : .clear)
+        .background(isSelected || isHovering ? color.opacity(0.3) : .clear)
         #else
         .background(isSelected || isHovering ? color.opacity(0.2) : .clear)
         #endif

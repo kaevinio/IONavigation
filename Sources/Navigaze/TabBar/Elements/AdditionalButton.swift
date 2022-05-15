@@ -14,7 +14,7 @@ struct AdditionalButton: View {
             ZStack {
                 RoundedRectangle(cornerRadius: Values.cornerRadius)
                     .strokeBorder(isHovering ? color : .gray, lineWidth: Values.lineSize)
-                    .background(.regularMaterial)
+                    .background(.white.opacity(0.0001))
                 
                 HStack {
                     icon
