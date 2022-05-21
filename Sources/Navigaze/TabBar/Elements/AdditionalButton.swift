@@ -11,25 +11,23 @@ struct AdditionalButton: View {
     
     var body: some View {
         Button(action: action) {
-            ZStack {
-                RoundedRectangle(cornerRadius: Values.cornerRadius)
-                    .strokeBorder(isHovering ? color : .gray, lineWidth: Values.lineSize)
-                    .background(.white.opacity(0.0001))
+            HStack {
+                icon
+                    .frame(width: Values.iconSize, height: Values.iconSize)
                 
-                HStack {
-                    icon
-                        .frame(width: Values.iconSize, height: Values.iconSize)
-                    
-                    Text(title)
-                        #if os(iOS)
-                        .font(.system(size: 16, weight: .medium))
-                        #else
-                        .font(.system(size: 15))
-                        #endif
-                }
-                .foregroundColor(color)
-                .padding(.horizontal, Values.minorPadding)
+                Text(title)
+                    #if os(iOS)
+                    .font(.system(size: 16, weight: .medium))
+                    #else
+                    .font(.system(size: 15))
+                    #endif
             }
+            .frame(height: Values.buttonSize)
+            .frame(maxWidth: .infinity)
+            .foregroundColor(.white)
+            .padding(.horizontal, Values.minorPadding)
+            .background(isHovering ? color.opacity(0.7) : color)
+            .cornerRadius(Values.cornerRadius)
         }
         .buttonStyle(.plain)
         .onHover { hovering in

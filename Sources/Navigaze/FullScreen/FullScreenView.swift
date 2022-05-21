@@ -36,7 +36,7 @@ public struct FullScreenView<Content: View>: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                 .background(secondaryBackgroundColor)
                 .cornerRadius(Values.cornerRadius)
-                .padding(.vertical, geometry.size.height * 0.15)
+                .padding(.vertical, geometry.size.height * 0.1)
                 .padding(.horizontal, geometry.size.width * 0.15)
                 .shadowBackground()
             }

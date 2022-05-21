@@ -19,7 +19,6 @@ public struct SidebarButton: ViewModifier {
                 .padding(.horizontal, Values.middlePadding)
                 .padding(.bottom, Values.middlePadding)
         }
-        .ignoresSafeArea(.all, edges: .bottom)
         #else
         ZStack(alignment: .bottomLeading) {
             content
@@ -31,7 +30,6 @@ public struct SidebarButton: ViewModifier {
                     .padding(.bottom, Values.middlePadding)
             }
         }
-        .ignoresSafeArea(.all, edges: .bottom)
         #endif
     }
     
