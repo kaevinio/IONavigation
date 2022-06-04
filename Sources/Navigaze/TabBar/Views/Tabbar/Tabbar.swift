@@ -9,40 +9,41 @@ import SwiftUI
 public struct Tabbar<Content: View>: View {
     
     public var body: some View {
-        ZStack {
-            content(selectedIndex ?? 0)
+        VStack(spacing: 0) {
+            content(selectedId)
             
-            VStack(spacing: 0) {
-                Spacer()
-                
-                Divider()
-                
-                HStack {
-//                    ForEach(tabs, id: \.index) { tab in
-//                        Button {
-//                            self.selectedIndex = tab.index
-//                        } label: {
-//                            TabItemCompact(item: tabs[tab.index], isSelected: selectedIndex == tab.index, color: color)
-//                        }
-//                    }
+            Divider()
+            
+            HStack {
+                ForEach(tabGroups, id: \.id) { group in
+                    HStack {
+                        ForEach(group.tabs, id: \.id) { tab in
+                            Button {
+                                self.selectedId = tab.id
+                            } label: {
+                                TabItemCompact(item: tab, isSelected: selectedId == tab.id, color: color)
+                            }
+                            .buttonStyle(.plain)
+                        }
+                    }
                 }
-                .frame(height: Values.tabbarHeight)
-                .padding(.horizontal, Values.middlePadding)
             }
-            .padding(.bottom, Values.minorPadding)
+            .frame(height: Values.tabbarHeight)
+            .padding(.horizontal, Values.middlePadding)
+            .padding(.bottom, Values.middlePadding)
         }
-        .ignoresSafeArea()
+        .ignoresSafeArea(.all, edges: .bottom)
     }
     
     
     
     // MARK: - Variables
     
-    public let tabs: [TabModel]
+    public let tabGroups: [TabGroup]
     public let color: Color
     
-    @Binding public var selectedIndex: Int?
+    @Binding public var selectedId: String
     
-    @ViewBuilder public let content: (Int) -> Content
+    @ViewBuilder public let content: (String) -> Content
     
 }

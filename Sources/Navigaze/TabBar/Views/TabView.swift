@@ -11,7 +11,7 @@ public struct TabView<Content: View>: View {
     public var body: some View {
         #if os(iOS)
         if horizontalSizeClass == .compact {
-//            Tabbar(tabs: tabs, color: color, selectedIndex: $selectedIndex, content: content)
+            Tabbar(tabGroups: tabGroups, color: color, selectedId: $selectedId, content: content)
         } else {
             Sidebar(title: title, tabGroups: tabGroups, color: color, selectedId: $selectedId, content: content)
         }

@@ -36,7 +36,7 @@ public struct Avatar: ViewModifier {
             }
             .frame(width: Values.navigationBarHeight)
             #if os(iOS)
-            .padding(.top, Values.minorPadding)
+            .padding(.top, horizontalSizeClass == .compact ? 0 : Values.minorPadding)
             #else
             .padding(.top, Values.middlePadding)
             #endif
@@ -46,6 +46,10 @@ public struct Avatar: ViewModifier {
     
     
     // MARK: - Variables
+    
+    #if os(iOS)
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    #endif
     
     @State var isHovering = false
     

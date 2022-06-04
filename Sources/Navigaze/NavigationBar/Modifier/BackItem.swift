@@ -33,7 +33,11 @@ public struct BackItem: ViewModifier {
                     .padding(.trailing, Values.middlePadding)
             }
             .frame(width: Values.navigationBarHeight)
-            .padding(.top, Values.minorPadding)
+            #if os(iOS)
+            .padding(.top, horizontalSizeClass == .compact ? 0 : Values.minorPadding)
+            #else
+            .padding(.top, Values.middlePadding)
+            #endif
             .onHover { hovering in
                 self.isHovering = hovering
             }
@@ -49,6 +53,10 @@ public struct BackItem: ViewModifier {
     
     
     // MARK: - Variables
+    
+    #if os(iOS)
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    #endif
     
     @State private var isHovering = false
     

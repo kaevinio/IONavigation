@@ -28,7 +28,7 @@ public struct CustomNavigationBar: View {
             Divider()
         }
         #if os(iOS)
-        .padding(.top, Values.minorPadding)
+        .padding(.top, horizontalSizeClass == .compact ? 0 : Values.minorPadding)
         #else
         .padding(.top, Values.middlePadding)
         #endif
@@ -37,6 +37,10 @@ public struct CustomNavigationBar: View {
     
     
     // MARK: - Variables
+    
+    #if os(iOS)
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    #endif
     
     public var title: String
     

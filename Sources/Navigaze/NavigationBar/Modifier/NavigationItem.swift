@@ -35,7 +35,7 @@ public struct NavigationItem: ViewModifier {
             }
             .frame(width: Values.navigationBarHeight)
             #if os(iOS)
-            .padding(.top, Values.minorPadding)
+            .padding(.top, horizontalSizeClass == .compact ? 0 : Values.minorPadding)
             #else
             .padding(.top, Values.middlePadding)
             #endif
@@ -48,6 +48,10 @@ public struct NavigationItem: ViewModifier {
     
     
     // MARK: - Variables
+    
+    #if os(iOS)
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    #endif
     
     @State private var isHovering = false
     
