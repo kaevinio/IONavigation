@@ -1,23 +1,22 @@
 //
-//  TabItemHorizontal.swift
-//  UXlytics
+//  TabbarItem.swift
 //
 //  Created by Kevin Waltz on 22.04.22.
 //
 
 import SwiftUI
 
-struct TabItem: View {
+struct TabbarItem: View {
     
     var body: some View {
         HStack(alignment: .center) {
             Spacer()
             
             VStack {
-                TabIcon(image: item.image, color: color)
+                TabbarIcon(image: item.image, color: isSelected ? .white : color)
             }
             .frame(width: Values.buttonSize, height: Values.buttonSize)
-            .background(isSelected || isHovering ? color.opacity(0.09) : .clear)
+            .background(backgroundColor)
             .cornerRadius(Values.cornerRadius)
             .onHover { hovering in
                 self.isHovering = hovering
@@ -33,8 +32,22 @@ struct TabItem: View {
     
     @State private var isHovering = false
     
-    public let item: Item
-    public let isSelected: Bool
-    public let color: Color
+    let item: Item
+    let isSelected: Bool
+    let color: Color
+    
+    
+    
+    // MARK: - Computed Properties
+    
+    var backgroundColor: Color {
+        if isSelected {
+            return color
+        } else if isHovering && !isSelected {
+            return color.opacity(0.2)
+        } else {
+            return .clear
+        }
+    }
     
 }

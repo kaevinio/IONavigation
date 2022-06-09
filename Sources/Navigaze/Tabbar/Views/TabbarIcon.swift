@@ -1,15 +1,14 @@
 //
-//  TabIcon.swift
-//  UXlytics
+//  TabbarIcon.swift
 //
 //  Created by Kevin Waltz on 22.04.22.
 //
 
 import SwiftUI
 
-public struct TabIcon: View {
+struct TabbarIcon: View {
     
-    public var body: some View {
+    var body: some View {
         image
             .resizable()
             .renderingMode(.template)
@@ -22,7 +21,7 @@ public struct TabIcon: View {
     
     // MARK: - Variables
     
-    public let image: Image
-    public let color: Color
+    let image: Image
+    let color: Color
     
 }

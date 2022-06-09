@@ -6,44 +6,40 @@
 
 import SwiftUI
 
-public struct Tabbar<Content: View>: View {
+public struct Tabbar: View {
+    
+    public init(items: [Item], color: Color) {
+        self.items = items
+        self.color = color
+    }
     
     public var body: some View {
         VStack(spacing: 0) {
-            content(selectedId)
-            
-            Divider()
-            
-            HStack {
-                ForEach(itemGroups, id: \.id) { group in
-                    HStack {
-                        ForEach(group.items, id: \.id) { item in
-                            Button {
-                                self.selectedId = item.id
-                            } label: {
-                                TabItem(item: item, isSelected: selectedId == item.id, color: color)
-                            }
-                            .buttonStyle(.plain)
-                        }
-                    }
-                }
+            if let view = items.filter { $0.id == selectedId }.first?.view {
+                view
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else {
+                Text("")
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
-            .frame(height: Values.tabbarHeight)
-            .padding(.horizontal, Values.middlePadding)
-            .padding(.bottom, Values.middlePadding)
+            
+            TabbarView(selectedId: $selectedId, items: items, color: color)
         }
         .ignoresSafeArea(.all, edges: .bottom)
+        .onAppear {
+            DispatchQueue.main.async {
+                self.selectedId = self.items.first?.id ?? ""
+            }
+        }
     }
     
     
     
     // MARK: - Variables
     
-    public let itemGroups: [ItemGroup]
-    public let color: Color
+    @State private var selectedId = ""
     
-    @Binding public var selectedId: String
-    
-    @ViewBuilder public let content: (String) -> Content
+    private let items: [Item]
+    private let color: Color
     
 }
