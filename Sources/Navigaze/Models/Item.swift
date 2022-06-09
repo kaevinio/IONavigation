@@ -1,13 +1,13 @@
 //
-//  TabModel.swift
-//  UXlytics
+//  Item.swift
+//
 //
 //  Created by Kevin Waltz on 22.04.22.
 //
 
 import SwiftUI
 
-public struct TabModel {
+public struct Item {
     
     public init(id: String, title: String, image: Image, view: AnyView) {
         self.id = id

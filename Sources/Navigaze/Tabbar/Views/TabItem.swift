@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TabItemCompact: View {
+struct TabItem: View {
     
     var body: some View {
         HStack(alignment: .center) {
@@ -33,7 +33,7 @@ struct TabItemCompact: View {
     
     @State private var isHovering = false
     
-    public let item: TabModel
+    public let item: Item
     public let isSelected: Bool
     public let color: Color
     

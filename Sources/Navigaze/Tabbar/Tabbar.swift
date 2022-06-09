@@ -15,13 +15,13 @@ public struct Tabbar<Content: View>: View {
             Divider()
             
             HStack {
-                ForEach(tabGroups, id: \.id) { group in
+                ForEach(itemGroups, id: \.id) { group in
                     HStack {
-                        ForEach(group.tabs, id: \.id) { tab in
+                        ForEach(group.items, id: \.id) { item in
                             Button {
-                                self.selectedId = tab.id
+                                self.selectedId = item.id
                             } label: {
-                                TabItemCompact(item: tab, isSelected: selectedId == tab.id, color: color)
+                                TabItem(item: item, isSelected: selectedId == item.id, color: color)
                             }
                             .buttonStyle(.plain)
                         }
@@ -39,7 +39,7 @@ public struct Tabbar<Content: View>: View {
     
     // MARK: - Variables
     
-    public let tabGroups: [TabGroup]
+    public let itemGroups: [ItemGroup]
     public let color: Color
     
     @Binding public var selectedId: String
