@@ -6,6 +6,7 @@ A simple and beautiful Sidebar, a Tabbar and a Navigationbar for iOS, iPadOS and
 ## Content
 - [Features](#features)
 - [Screenshots](#screenshots)
+- [Previews](#previews)
 - [Installation](#installation)
 - [How to use](-how-to-use)
 
@@ -33,6 +34,9 @@ A simple and beautiful Sidebar, a Tabbar and a Navigationbar for iOS, iPadOS and
 #### iOS
 <img src="assets/README-iphone_1_navigation.png" width="300"> <img src="assets/README-iphone_2_multiple.png" width="300">
 
+
+## Previews
+<video src="(https://user-images.githubusercontent.com/95750332/173130742-a08b379e-ca53-4014-8e8c-9a7350f22233.mov)" width="300"> <video src="(https://user-images.githubusercontent.com/95750332/173131035-b3634b26-6f6e-4cab-b7b8-20df412211d0.mov)" width="300">
 
 
 ## Installation
