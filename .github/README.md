@@ -8,7 +8,7 @@ A simple and beautiful Sidebar, a Tabbar and a Navigationbar for iOS, iPadOS and
 - [Screenshots](#screenshots)
 - [Preview](#preview)
 - [Installation](#installation)
-- [How to use](-how-to-use)
+- [How to Use](#how-to-use)
 
 
 ## Features
