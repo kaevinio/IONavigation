@@ -6,7 +6,7 @@
 
 import SwiftUI
 
-public struct CustomNavigationBar: View {
+public struct Navigationbar: View {
     
     public init(title: String) {
         self.title = title

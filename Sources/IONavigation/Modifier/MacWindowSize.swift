@@ -7,22 +7,26 @@
 
 import SwiftUI
 
+#if os(macOS)
 public struct MacWindowSize: ViewModifier {
     
     public func body(content: Content) -> some View {
         content
-            #if os(macOS)
-            .frame(minWidth: 800, maxWidth: .infinity, minHeight: 600, maxHeight: .infinity)
-            .onAppear {
-                NSWindow.allowsAutomaticWindowTabbing = false
-            }
-            #endif
+            .frame(minWidth: minWidth, maxWidth: .infinity, minHeight: minHeight, maxHeight: .infinity)
     }
+    
+    
+    
+    // MARK: - Varibles
+    
+    let minWidth: CGFloat
+    let minHeight: CGFloat
     
 }
 
 extension View {
-    public func macWindowSize() -> some View {
-        modifier(MacWindowSize())
+    public func macWindowSize(minWidth: CGFloat = 800, minHeight: CGFloat = 400) -> some View {
+        modifier(MacWindowSize(minWidth: minWidth, minHeight: minHeight))
     }
 }
+#endif
