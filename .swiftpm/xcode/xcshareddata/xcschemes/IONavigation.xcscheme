@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1330"
+   LastUpgradeVersion = "1340"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "Navigaze"
-               BuildableName = "Navigaze"
-               BlueprintName = "Navigaze"
+               BlueprintIdentifier = "IONavigation"
+               BuildableName = "IONavigation"
+               BlueprintName = "IONavigation"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -50,9 +50,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "Navigaze"
-            BuildableName = "Navigaze"
-            BlueprintName = "Navigaze"
+            BlueprintIdentifier = "IONavigation"
+            BuildableName = "IONavigation"
+            BlueprintName = "IONavigation"
             ReferencedContainer = "container:">
          </BuildableReference>
       </MacroExpansion>
