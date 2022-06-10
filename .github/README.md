@@ -25,13 +25,13 @@ A simple and beautiful Sidebar, a Tabbar and a Navigationbar for iOS, iPadOS and
 
 ## Screenshots
 #### macOS
-<img src="assets/README-mac_1_navigation.png" width="300"> <img src="assets/README-mac_2_single.png" width="300"> <img src="assets/README-mac_3_multiple.png" width="300">
+<img src="assets/README-mac_1_navigation.png" width="300"> <img src="assets/README-mac_2_multiple.png" width="300">
 
 #### iPadOS
-<img src="assets/README-ipad_1_navigation.png" width="300"> <img src="assets/README-ipad_2_single.png" width="300"> <img src="assets/README-ipad_3_multiple.png" width="300">
+<img src="assets/README-ipad_1_navigation.png" width="300"> <img src="assets/README-ipad_2_multiple.png" width="300">
 
 #### iOS
-<img src="assets/README-iphone_1_navigation.png" width="300"> <img src="assets/README-iphone_2_single.png" width="300"> <img src="assets/README-iphone_3_multiple.png" width="300">
+<img src="assets/README-iphone_1_navigation.png" width="300"> <img src="assets/README-iphone_2_multiple.png" width="300">
 
 
 
