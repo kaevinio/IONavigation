@@ -12,19 +12,26 @@ public struct NavigationItem: ViewModifier {
     public func body(content: Content) -> some View {
         HStack(alignment: .bottom, spacing: 0) {
             content
+                .frame(maxWidth: .infinity, alignment: .leading)
             
             VStack(alignment: .center, spacing: 0) {
                 Button(action: action) {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: Values.cornerRadius)
-                            .frame(width: Values.itemSize, height: Values.itemSize)
-                            .foregroundColor(isHovering ? color.opacity(0.1) : color.opacity(0))
-                        
+                    if let text = text {
+                        Text(text)
+                            .font(.system(size: 16, weight: boldText ?? true ? .semibold : .regular))
+                            .foregroundColor(color)
+                            .padding(Values.middlePadding / 2)
+                            .background(isHovering ? color.opacity(0.1) : color.opacity(0))
+                            .cornerRadius(Values.cornerRadius)
+                    } else if let image = image {
                         image
                             .resizable()
                             .scaledToFit()
                             .foregroundColor(color)
                             .frame(width: Values.navigationItemSize, height: Values.navigationItemSize)
+                            .padding(Values.middlePadding / 2)
+                            .background(isHovering ? color.opacity(0.1) : color.opacity(0))
+                            .cornerRadius(Values.cornerRadius)
                     }
                 }
                 .buttonStyle(.plain)
@@ -33,7 +40,7 @@ public struct NavigationItem: ViewModifier {
                 
                 Divider()
             }
-            .frame(width: Values.navigationBarHeight)
+            .fixedSize()
             #if os(iOS)
             .padding(.top, horizontalSizeClass == .compact ? 0 : Values.minorPadding)
             #else
@@ -55,14 +62,16 @@ public struct NavigationItem: ViewModifier {
     
     @State private var isHovering = false
     
-    let image: Image
+    let text: String?
+    let boldText: Bool?
+    let image: Image?
     let color: Color
     let action: () -> Void
     
 }
 
 extension View {
-    public func navigationItem(image: Image, color: Color, action: @escaping () -> Void) -> some View {
-        modifier(NavigationItem(image: image, color: color, action: action))
+    public func navigationItem(text: String? = nil, boldText: Bool? = true, image: Image? = nil, color: Color = .primary, action: @escaping () -> Void) -> some View {
+        modifier(NavigationItem(text: text, boldText: boldText, image: image, color: color, action: action))
     }
 }

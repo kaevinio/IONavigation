@@ -10,17 +10,14 @@ struct SidebarButton: View {
     
     var body: some View {
         Button(action: action) {
-            ZStack {
-                RoundedRectangle(cornerRadius: Values.cornerRadius)
-                    .frame(width: Values.itemSize, height: Values.itemSize)
-                    .foregroundColor(isHovering ? color.opacity(0.1) : .clear)
-                
-                image
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundColor(color)
-                    .frame(width: Values.navigationItemSize, height: Values.navigationItemSize)
-            }
+            image
+                .resizable()
+                .scaledToFit()
+                .foregroundColor(color)
+                .frame(width: Values.navigationItemSize, height: Values.navigationItemSize)
+                .padding(Values.middlePadding / 2)
+                .background(isHovering ? color.opacity(0.1) : color.opacity(0))
+                .cornerRadius(Values.cornerRadius)
         }
         .buttonStyle(.plain)
         .background(.white.opacity(0.00001))
