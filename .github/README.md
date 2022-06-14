@@ -13,7 +13,9 @@ I really appreciate you **[buying me a coffee ☕️](https://ko-fi.com/kaevin)*
 
 #### Sponsors
 
-<img src="assets/README-spacesquad_logo_full.png" width="120"> Special thanks to **[SPACE SQUAD](https://www.spacesquad.de)** for backing this project! They make great software with ♥️ in Berlin.
+Special thanks to **[SPACE SQUAD](https://www.spacesquad.de)** for backing this project! They make great software with ♥️ in Berlin.
+
+<img src="assets/README-spacesquad_logo_full.png" width="120">
 
 ---
 
