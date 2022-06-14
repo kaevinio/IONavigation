@@ -34,9 +34,10 @@ public struct NavigationItem: ViewModifier {
                             .cornerRadius(Values.cornerRadius)
                     }
                 }
-                .buttonStyle(.plain)
                 .frame(height: Values.navigationBarHeight)
                 .padding(.trailing, Values.middlePadding)
+                .disabled(disabled)
+                .buttonStyle(.plain)
                 
                 Divider()
             }
@@ -66,12 +67,13 @@ public struct NavigationItem: ViewModifier {
     let boldText: Bool?
     let image: Image?
     let color: Color
+    let disabled: Bool
     let action: () -> Void
     
 }
 
 extension View {
-    public func navigationItem(text: String? = nil, boldText: Bool? = true, image: Image? = nil, color: Color = .primary, action: @escaping () -> Void) -> some View {
-        modifier(NavigationItem(text: text, boldText: boldText, image: image, color: color, action: action))
+    public func navigationItem(text: String? = nil, boldText: Bool? = true, image: Image? = nil, color: Color = .primary, disabled: Bool = false, action: @escaping () -> Void) -> some View {
+        modifier(NavigationItem(text: text, boldText: boldText, image: image, color: color, disabled: disabled, action: action))
     }
 }
