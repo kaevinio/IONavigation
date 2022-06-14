@@ -3,7 +3,29 @@
 A simple and beautiful Sidebar, a Tabbar and a Navigationbar for iOS, iPadOS and macOS, written in 100% SwiftUI.
 
 
-## Content
+---
+
+## 💰 Support
+I fell in love with coding in 2016 and there has been no looking back since! If you, or your company, use any of my projects or like what I'm doing, kindly consider supporting me.
+
+I really appreciate you **[buying me a coffee ☕️](https://ko-fi.com/kaevin)**
+
+
+#### Sponsors
+
+Special thanks to **[Space Squad](https://www.spacesquad.de)** for backing this project! They make great software with ♥️ in Berlin.
+
+---
+
+## 👋 Let's Connect
+
+- Follow me on **[👨‍💻 Github](https://github.com/kaevinio)** and stay updated on free and open-source software
+- Follow me on **[🐦 Twitter](https://twitter.com/iamkaevin)** to get updates on my latest open source projects
+
+---
+
+
+## 📖 Content
 - [Features](#features)
 - [Screenshots](#screenshots)
 - [Preview](#preview)
@@ -11,7 +33,7 @@ A simple and beautiful Sidebar, a Tabbar and a Navigationbar for iOS, iPadOS and
 - [How to Use](#how-to-use)
 
 
-## Features
+## 🪄 Features
 - [x] Availability on iOS, iPadOS and macOS
 - [x] Show a header and a button (optional) in the Sidebar
 - [x] Add unlimited groups and views to the Sidebar
@@ -24,7 +46,7 @@ A simple and beautiful Sidebar, a Tabbar and a Navigationbar for iOS, iPadOS and
 - [x] Set your custom color
 
 
-## Screenshots
+## 📱 Screenshots
 #### macOS
 <img src="assets/README-mac_1_navigation.png" width="300"> <img src="assets/README-mac_2_multiple.png" width="300">
 
@@ -35,11 +57,11 @@ A simple and beautiful Sidebar, a Tabbar and a Navigationbar for iOS, iPadOS and
 <img src="assets/README-iphone_1_navigation.png" width="300"> <img src="assets/README-iphone_2_multiple.png" width="300">
 
 
-## Preview
+## 🎥 Preview
 <video src="https://user-images.githubusercontent.com/95750332/173130742-a08b379e-ca53-4014-8e8c-9a7350f22233.mov" width="600">|
 
 
-## Installation
+## 🛠 Installation
 ##### Requirements
 - iOS 15.0+ / macOS 12.0
 - Xcode 13+
@@ -49,7 +71,7 @@ A simple and beautiful Sidebar, a Tabbar and a Navigationbar for iOS, iPadOS and
 In Xcode, go to `File > Add Packages` and add `https://github.com/kaevinio/IONavigation.git`. Add the package to all your targets.
 
 
-## How to Use
+## 📝 How to Use
 #### Sidebar & Tabbar
 The Sidebar consists of several groups, which contain individual views and is displayed on macOS and iPadOS. The Tabbar contains individual views and is available on iOS as well as in compact windows on iPadOS.
 
@@ -99,7 +121,7 @@ var body: some View {
 }
 ```
 
-This will display a blank Navigationbar with a header. You can also add either a **BackButton**, which is displayed on the *leading* side of the header (for deeper navigation) or you can add one or multiple **NavigationItems**, which will be added to *trailing* side of the Navigationbar.
+This will display a blank Navigationbar with a header. You can also add either a **BackButton**, which is displayed on the *leading* side of the header (for deeper navigation) or you can add one or multiple **NavigationItems**, which will be added to *trailing* side of the Navigationbar. You can choose between an **icon** and **text** to be shown.
 
 - To show NavigationItems, use the built-in ViewModifier `.navigationItem`:
 ```Swift
