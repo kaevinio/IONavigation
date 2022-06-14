@@ -5,7 +5,7 @@ A simple and beautiful Sidebar, a Tabbar and a Navigationbar for iOS, iPadOS and
 
 ---
 
-## 💰 Support
+### 💰 Support
 I fell in love with coding in 2016 and there has been no looking back since! If you, or your company, use any of my projects or like what I'm doing, kindly consider supporting me.
 
 I really appreciate you **[buying me a coffee ☕️](https://ko-fi.com/kaevin)**
@@ -13,14 +13,14 @@ I really appreciate you **[buying me a coffee ☕️](https://ko-fi.com/kaevin)*
 
 #### Sponsors
 
-Special thanks to **[Space Squad](https://www.spacesquad.de)** for backing this project! They make great software with ♥️ in Berlin.
+<img src="assets/README-spacesquad_logo_full.png" width="120"> Special thanks to **[SPACE SQUAD](https://www.spacesquad.de)** for backing this project! They make great software with ♥️ in Berlin.
 
 ---
 
-## 👋 Let's Connect
+### 👋 Let's Connect
 
 - Follow me on **[👨‍💻 Github](https://github.com/kaevinio)** and stay updated on free and open-source software
-- Follow me on **[🐦 Twitter](https://twitter.com/iamkaevin)** to get updates on my latest open source projects
+- Follow me on **[🐦 Twitter](https://twitter.com/iamkaevin)** to get updates on my latest projects
 
 ---
 
