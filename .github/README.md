@@ -102,6 +102,21 @@ Note: `Header`, `actionIcon` and `action` are optional. If you don't use a `head
 
 You pass an array of `Item` for the Tabbar but an array of `ItemGroup` to the Sidebar. This is because the Sidebar supports different groups, which can be collapsed.
 
+You can also select views from your sidebar programmatically. In your view, add the following property:
+
+```Swift
+@StateObject private var sidebarSelection = SidebarSelection.shared
+```
+
+You can then set `sidebarSelection` with the ID of the view you want to select, e.g. in a function:
+
+```Swift
+private func selectSearchTab() {
+    sidebarSelection.selectedViewID = HomeTab.search.rawValue
+}
+```
+You can find the respective code in the example project.
+
 
 #### Navigationbar
 Using the built-in Navigationbar is optional, as it does not belong to the Sidebar or the Tabbar. To use it, navigate to the view you'd like to use it in. First, `import IONavigation` at the top.

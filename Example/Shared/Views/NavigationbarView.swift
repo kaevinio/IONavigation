@@ -13,6 +13,7 @@ struct NavigationbarView: View {
     var body: some View {
         VStack(spacing: 0) {
             Navigationbar(title: "Navigationbar")
+                .navigationItem(image: Image(systemName: "magnifyingglass"), color: .purple, action: selectSearchTab)
             
             ScrollView {
                 Text("Hello, world!")
@@ -21,6 +22,20 @@ struct NavigationbarView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         .background(Color("primaryBackground"))
+    }
+    
+    
+    
+    // MARK: - Variables
+    
+    @StateObject private var sidebarSelection = SidebarSelection.shared
+    
+    
+    
+    // MARK: - Functions
+    
+    private func selectSearchTab() {
+        sidebarSelection.selectedViewID = HomeTab.search.rawValue
     }
     
 }

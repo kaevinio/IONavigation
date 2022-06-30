@@ -19,13 +19,13 @@ public struct Sidebar: View {
     
     public var body: some View {
         HStack(spacing: 0) {
-            SidebarView(selectedId: $selectedId, header: header, color: color, itemGroups: itemGroups, actionIcon: actionIcon, action: action)
+            SidebarView(selectedId: $sidebarSelection.selectedViewID, header: header, color: color, itemGroups: itemGroups, actionIcon: actionIcon, action: action)
                 .background(.regularMaterial)
                 .frame(maxHeight: .infinity)
                 .frame(width: Values.sidebarWidth)
                 .ignoresSafeArea(.keyboard, edges: .bottom)
             
-            if let view = itemGroups.flatMap { $0.items }.filter { $0.id == selectedId }.first?.view {
+            if let view = itemGroups.flatMap { $0.items }.filter { $0.id == sidebarSelection.selectedViewID }.first?.view {
                 view
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
@@ -36,7 +36,7 @@ public struct Sidebar: View {
         .macWindowSize()
         .onAppear {
             DispatchQueue.main.async {
-                self.selectedId = self.itemGroups.first?.items.first?.id ?? ""
+                self.sidebarSelection.selectedViewID = self.itemGroups.first?.items.first?.id ?? ""
             }
         }
     }
@@ -45,7 +45,7 @@ public struct Sidebar: View {
     
     // MARK: - Variables
     
-    @State private var selectedId = ""
+    @StateObject private var sidebarSelection = SidebarSelection.shared
     
     private let header: String?
     private let color: Color
