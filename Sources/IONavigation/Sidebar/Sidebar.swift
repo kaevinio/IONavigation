@@ -8,13 +8,24 @@ import SwiftUI
 
 public struct Sidebar: View {
     
-    public init(minWindowWidth: CGFloat = 800, minWindowHeight: CGFloat = 600, header: String? = nil, color: Color, itemGroups: [ItemGroup], actionIcon: Image? = nil, action: (() -> Void)? = nil) {
+    public init(minWindowWidth: CGFloat = 800,
+                minWindowHeight: CGFloat = 600,
+                header: String? = nil,
+                color: Color,
+                defaultTextColor: Color = .primary,
+                selectionTextColor: Color = .white,
+                itemGroups: [ItemGroup],
+                actionIcon: Image? = nil,
+                action: (() -> Void)? = nil) {
+        
         self.minWindowWidth = minWindowWidth
         self.minWindowHeight = minWindowHeight
         
         self.header = header
         self.itemGroups = itemGroups
         self.color = color
+        self.defaultTextColor = defaultTextColor
+        self.selectionTextColor = selectionTextColor
         
         self.actionIcon = actionIcon
         self.action = action
@@ -22,7 +33,7 @@ public struct Sidebar: View {
     
     public var body: some View {
         HStack(spacing: 0) {
-            SidebarView(selectedId: $sidebarSelection.selectedViewID, header: header, color: color, itemGroups: itemGroups, actionIcon: actionIcon, action: action)
+            SidebarView(selectedId: $sidebarSelection.selectedViewID, header: header, color: color, defaultTextColor: defaultTextColor, selectionTextColor: selectionTextColor, itemGroups: itemGroups, actionIcon: actionIcon, action: action)
                 .background(.regularMaterial)
                 .frame(maxHeight: .infinity)
                 .frame(width: Values.sidebarWidth)
@@ -55,6 +66,8 @@ public struct Sidebar: View {
     
     private let header: String?
     private let color: Color
+    private let defaultTextColor: Color
+    private let selectionTextColor: Color
     private var itemGroups: [ItemGroup]
     
     private let actionIcon: Image?

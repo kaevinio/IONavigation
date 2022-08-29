@@ -20,7 +20,7 @@ struct ItemGroupView: View {
                         Button {
                             self.selectedId = item.id
                         } label: {
-                            SidebarItem(item: item, isSelected: selectedId == item.id, color: color)
+                            SidebarItem(item: item, isSelected: selectedId == item.id, color: color, defaultTextColor: defaultTextColor, selectionTextColor: selectionTextColor)
                         }
                         .buttonStyle(.plain)
                     }
@@ -39,7 +39,10 @@ struct ItemGroupView: View {
     
     let header: String?
     let items: [Item]
-    let color: Color
     let isCollapsable: Bool
+    let color: Color
+    
+    let defaultTextColor: Color
+    let selectionTextColor: Color
     
 }

@@ -17,7 +17,7 @@ struct SidebarView: View {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: Values.majorPadding) {
                     ForEach(itemGroups, id: \.id) { group in
-                        ItemGroupView(selectedId: $selectedId, header: group.header, items: group.items, color: color, isCollapsable: group.isCollapsable)
+                        ItemGroupView(selectedId: $selectedId, header: group.header, items: group.items, isCollapsable: group.isCollapsable, color: color, defaultTextColor: defaultTextColor, selectionTextColor: selectionTextColor)
                     }
                 }
                 .padding(.top, Values.minorPadding)
@@ -37,6 +37,8 @@ struct SidebarView: View {
     
     let header: String?
     let color: Color
+    let defaultTextColor: Color
+    let selectionTextColor: Color
     let itemGroups: [ItemGroup]
     
     let actionIcon: Image?

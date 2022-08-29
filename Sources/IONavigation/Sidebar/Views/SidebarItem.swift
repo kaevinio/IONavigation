@@ -10,7 +10,7 @@ struct SidebarItem: View {
     
     var body: some View {
         HStack(spacing: Values.minorPadding) {
-            SidebarIcon(image: item.image, color: isSelected ? .white : color)
+            SidebarIcon(image: item.image, color: isSelected ? selectionTextColor : defaultTextColor)
             
             Text(item.title)
                 #if os(iOS)
@@ -18,7 +18,7 @@ struct SidebarItem: View {
                 #else
                 .font(.system(size: 15))
                 #endif
-                .foregroundColor(isSelected ? .white : .primary)
+                .foregroundColor(isSelected ? selectionTextColor : defaultTextColor)
         }
         .padding(.horizontal, Values.minorPadding)
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -37,9 +37,12 @@ struct SidebarItem: View {
     
     @State private var isHovering = false
     
-    public let item: Item
-    public let isSelected: Bool
-    public let color: Color
+    let item: Item
+    let isSelected: Bool
+    let color: Color
+    
+    let defaultTextColor: Color
+    let selectionTextColor: Color
     
     
     

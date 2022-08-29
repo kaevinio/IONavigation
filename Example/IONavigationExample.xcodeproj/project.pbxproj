@@ -13,8 +13,8 @@
 		4E8A65AB2853767000EC4F5B /* BasicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A65992853766F00EC4F5B /* BasicView.swift */; };
 		4E8A65AC2853767000EC4F5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E8A659A2853767000EC4F5B /* Assets.xcassets */; };
 		4E8A65AD2853767000EC4F5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E8A659A2853767000EC4F5B /* Assets.xcassets */; };
-		4E8A65BB2853773400EC4F5B /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A65BA2853773400EC4F5B /* NavigationView.swift */; };
-		4E8A65BC2853773400EC4F5B /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A65BA2853773400EC4F5B /* NavigationView.swift */; };
+		4E8A65BB2853773400EC4F5B /* NavigatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A65BA2853773400EC4F5B /* NavigatorView.swift */; };
+		4E8A65BC2853773400EC4F5B /* NavigatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A65BA2853773400EC4F5B /* NavigatorView.swift */; };
 		4E8A65BF2853776B00EC4F5B /* IONavigation in Frameworks */ = {isa = PBXBuildFile; productRef = 4E8A65BE2853776B00EC4F5B /* IONavigation */; };
 		4E8A65C12853777500EC4F5B /* IONavigation in Frameworks */ = {isa = PBXBuildFile; productRef = 4E8A65C02853777500EC4F5B /* IONavigation */; };
 		4E8A65C72853785A00EC4F5B /* HomeTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A65C62853785A00EC4F5B /* HomeTab.swift */; };
@@ -39,7 +39,7 @@
 		4E8A65A52853767000EC4F5B /* IONavigationExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IONavigationExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E8A65A72853767000EC4F5B /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		4E8A65B72853769800EC4F5B /* IONavigation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = IONavigation; path = ..; sourceTree = "<group>"; };
-		4E8A65BA2853773400EC4F5B /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
+		4E8A65BA2853773400EC4F5B /* NavigatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorView.swift; sourceTree = "<group>"; };
 		4E8A65C62853785A00EC4F5B /* HomeTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTab.swift; sourceTree = "<group>"; };
 		4E8A65CA2853786500EC4F5B /* LibraryTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryTab.swift; sourceTree = "<group>"; };
 		4E8A65CD2853787000EC4F5B /* SettingsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTab.swift; sourceTree = "<group>"; };
@@ -86,7 +86,6 @@
 				4E8A65982853766F00EC4F5B /* IONavigationExampleApp.swift */,
 				4E8A65C42853784400EC4F5B /* Navigation */,
 				4E8A65C3285377A800EC4F5B /* Views */,
-				4E8A65C22853779D00EC4F5B /* Strings */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -123,13 +122,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4E8A65C22853779D00EC4F5B /* Strings */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Strings;
-			sourceTree = "<group>";
-		};
 		4E8A65C3285377A800EC4F5B /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,7 +136,7 @@
 		4E8A65C42853784400EC4F5B /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				4E8A65BA2853773400EC4F5B /* NavigationView.swift */,
+				4E8A65BA2853773400EC4F5B /* NavigatorView.swift */,
 				4E8A65C52853784A00EC4F5B /* Tabs */,
 			);
 			path = Navigation;
@@ -269,7 +261,7 @@
 				4E8A65CB2853786500EC4F5B /* LibraryTab.swift in Sources */,
 				4E8A65AA2853767000EC4F5B /* BasicView.swift in Sources */,
 				4EA3944A285388130017BBC6 /* NavigationbarMultipleItemsView.swift in Sources */,
-				4E8A65BB2853773400EC4F5B /* NavigationView.swift in Sources */,
+				4E8A65BB2853773400EC4F5B /* NavigatorView.swift in Sources */,
 				4EA394472853870C0017BBC6 /* NavigationbarSingleItemView.swift in Sources */,
 				4EA39444285387050017BBC6 /* NavigationbarView.swift in Sources */,
 				4E8A65A82853767000EC4F5B /* IONavigationExampleApp.swift in Sources */,
@@ -285,7 +277,7 @@
 				4E8A65CC2853786500EC4F5B /* LibraryTab.swift in Sources */,
 				4E8A65AB2853767000EC4F5B /* BasicView.swift in Sources */,
 				4EA3944B285388130017BBC6 /* NavigationbarMultipleItemsView.swift in Sources */,
-				4E8A65BC2853773400EC4F5B /* NavigationView.swift in Sources */,
+				4E8A65BC2853773400EC4F5B /* NavigatorView.swift in Sources */,
 				4EA394482853870C0017BBC6 /* NavigationbarSingleItemView.swift in Sources */,
 				4EA39445285387050017BBC6 /* NavigationbarView.swift in Sources */,
 				4E8A65A92853767000EC4F5B /* IONavigationExampleApp.swift in Sources */,

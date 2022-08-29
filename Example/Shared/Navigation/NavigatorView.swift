@@ -1,5 +1,5 @@
 //
-//  NavigationView.swift
+//  NavigatorView.swift
 //  IONavigationExample
 //
 //  Created by Kevin Waltz on 10.06.22.
@@ -8,7 +8,7 @@
 import SwiftUI
 import IONavigation
 
-struct NavigationView: View {
+struct NavigatorView: View {
     
     var body: some View {
         #if os(iOS)
@@ -18,7 +18,7 @@ struct NavigationView: View {
             Sidebar(header: "IONavigation", color: .purple, itemGroups: sidebarItemGroups, actionIcon: Image(systemName: "plus.circle.fill"), action: add)
         }
         #else
-        Sidebar(header: "IONavigation", color: .purple, itemGroups: sidebarItemGroups, actionIcon: Image(systemName: "plus.circle.fill"), action: add)
+        Sidebar(header: "IONavigation", color: .cyan, selectionTextColor: .black, itemGroups: sidebarItemGroups, actionIcon: Image(systemName: "plus.circle.fill"), action: add)
         #endif
     }
     
@@ -71,10 +71,4 @@ struct NavigationView: View {
         ItemGroup(id: "settings", header: "Settings", items: SettingsTab.items, isCollapsable: false)
     }
     
-}
-
-struct NavigationView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView()
-    }
 }

@@ -12,7 +12,7 @@ struct IONavigationExampleApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationView()
+            NavigatorView()
         }
         #if os(macOS)
         .windowStyle(HiddenTitleBarWindowStyle())
