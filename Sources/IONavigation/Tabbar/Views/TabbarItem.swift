@@ -12,12 +12,19 @@ struct TabbarItem: View {
         HStack(alignment: .center) {
             Spacer()
             
-            VStack {
+            ZStack {
+                switch style {
+                case .circle:
+                    Circle()
+                        .foregroundColor(backgroundColor)
+                default:
+                    RoundedRectangle(cornerRadius: style == .rounded ? Values.cornerRadius : 0)
+                        .foregroundColor(backgroundColor)
+                }
+                
                 TabbarIcon(image: item.image, color: isSelected ? .white : color)
             }
             .frame(width: Values.buttonSize, height: Values.buttonSize)
-            .background(backgroundColor)
-            .cornerRadius(Values.cornerRadius)
             .onHover { hovering in
                 self.isHovering = hovering
             }
@@ -35,6 +42,7 @@ struct TabbarItem: View {
     let item: Item
     let isSelected: Bool
     let color: Color
+    let style: TabStyle
     
     
     

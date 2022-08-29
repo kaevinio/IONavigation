@@ -8,9 +8,10 @@ import SwiftUI
 
 public struct Tabbar: View {
     
-    public init(items: [Item], color: Color) {
+    public init(items: [Item], color: Color, style: TabStyle) {
         self.items = items
         self.color = color
+        self.style = style
     }
     
     public var body: some View {
@@ -23,7 +24,7 @@ public struct Tabbar: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             
-            TabbarView(selectedId: $selectedId, items: items, color: color)
+            TabbarView(selectedId: $selectedId, items: items, color: color, style: style)
         }
         .ignoresSafeArea(.all, edges: .bottom)
         .onAppear {
@@ -41,5 +42,6 @@ public struct Tabbar: View {
     
     private let items: [Item]
     private let color: Color
+    private let style: TabStyle
     
 }

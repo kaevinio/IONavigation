@@ -15,7 +15,7 @@ struct TabbarView: View {
                 Button {
                     self.selectedId = item.id
                 } label: {
-                    TabbarItem(item: item, isSelected: selectedId == item.id, color: color)
+                    TabbarItem(item: item, isSelected: selectedId == item.id, color: color, style: style)
                 }
                 .buttonStyle(.plain)
             }
@@ -33,5 +33,6 @@ struct TabbarView: View {
     
     let items: [Item]
     let color: Color
+    let style: TabStyle
     
 }

@@ -13,7 +13,7 @@ struct NavigatorView: View {
     var body: some View {
         #if os(iOS)
         if horizontalSizeClass == .compact {
-            Tabbar(items: tabbarItems, color: .purple)
+            Tabbar(items: tabbarItems, color: .purple, style: .rounded)
         } else {
             Sidebar(header: "IONavigation", color: .purple, itemGroups: sidebarItemGroups, actionIcon: Image(systemName: "plus.circle.fill"), action: add)
         }
