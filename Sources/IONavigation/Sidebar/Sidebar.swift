@@ -8,7 +8,10 @@ import SwiftUI
 
 public struct Sidebar: View {
     
-    public init(header: String? = nil, color: Color, itemGroups: [ItemGroup], actionIcon: Image? = nil, action: (() -> Void)? = nil) {
+    public init(minWindowWidth: CGFloat = 800, minWindowHeight: CGFloat = 600, header: String? = nil, color: Color, itemGroups: [ItemGroup], actionIcon: Image? = nil, action: (() -> Void)? = nil) {
+        self.minWindowWidth = minWindowWidth
+        self.minWindowHeight = minWindowHeight
+        
         self.header = header
         self.itemGroups = itemGroups
         self.color = color
@@ -33,7 +36,7 @@ public struct Sidebar: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }
-        .macWindowSize()
+        .macWindowSize(minWidth: minWindowWidth, minHeight: minWindowHeight)
         .onAppear {
             DispatchQueue.main.async {
                 self.sidebarSelection.selectedViewID = self.itemGroups.first?.items.first?.id ?? ""
@@ -46,6 +49,9 @@ public struct Sidebar: View {
     // MARK: - Variables
     
     @StateObject private var sidebarSelection = SidebarSelection.shared
+    
+    let minWindowWidth: CGFloat
+    let minWindowHeight: CGFloat
     
     private let header: String?
     private let color: Color
