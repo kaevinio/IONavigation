@@ -1,6 +1,7 @@
 //
 //  SidebarIcon.swift
 //
+//
 //  Created by Kevin Waltz on 09.06.22.
 //
 

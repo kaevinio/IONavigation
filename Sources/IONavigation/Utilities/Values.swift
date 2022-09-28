@@ -1,6 +1,6 @@
 //
 //  Values.swift
-//  UXlytics (iOS)
+//  
 //
 //  Created by Kevin Waltz on 24.04.22.
 //

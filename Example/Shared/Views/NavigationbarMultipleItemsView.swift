@@ -13,8 +13,8 @@ struct NavigationbarMultipleItemsView: View {
     var body: some View {
         VStack(spacing: 0) {
             Navigationbar(title: "Multiple Items")
-                .navigationItem(image: Image(systemName: "heart.fill"), color: .purple, action: {})
-                .navigationItem(image: Image(systemName: "bookmark.fill"), color: .purple, action: {})
+                .navigationItem(image: Image(systemName: "heart.fill"), color: .blue, action: {})
+                .navigationItem(image: Image(systemName: "bookmark.fill"), color: .blue, action: {})
             
             ScrollView {
                 Text("Hello, world!")

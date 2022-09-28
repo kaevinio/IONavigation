@@ -13,7 +13,7 @@ struct NavigationbarSingleItemView: View {
     var body: some View {
         VStack(spacing: 0) {
             Navigationbar(title: "Single Item")
-                .navigationItem(image: Image(systemName: "star.fill"), color: .purple, action: {})
+                .navigationItem(image: Image(systemName: "star.fill"), color: .blue, action: {})
             
             ScrollView {
                 Text("Hello, world!")

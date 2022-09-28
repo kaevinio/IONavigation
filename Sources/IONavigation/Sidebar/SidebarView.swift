@@ -1,6 +1,7 @@
 //
 //  SidebarView.swift
 //
+//
 //  Created by Kevin Waltz on 26.04.22.
 //
 

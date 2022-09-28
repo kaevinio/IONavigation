@@ -16,9 +16,9 @@ public struct Item {
         self.view = view
     }
     
-    let id: String
-    let title: String
-    let image: Image
-    let view: AnyView // The view to be shown needs to be wrapped in 'AnyView' as a 'View' cannot be passed in SwiftUI
+    public let id: String
+    public let title: String
+    public let image: Image
+    public let view: AnyView // The view to be shown needs to be wrapped in 'AnyView' as a 'View' cannot be passed in SwiftUI
     
 }

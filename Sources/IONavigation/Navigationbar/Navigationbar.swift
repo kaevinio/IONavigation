@@ -1,5 +1,6 @@
 //
-//  CustomNavigationBar.swift
+//  NavigationBar.swift
+//
 //
 //  Created by Kevin Waltz on 22.04.22.
 //
@@ -14,16 +15,12 @@ public struct Navigationbar: View {
     
     public var body: some View {
         VStack(spacing: 0) {
-            HStack(spacing: 0) {
-                Text(title)
-                    .font(.system(size: Values.navigationTextSize, weight: .semibold))
-                    .frame(height: Values.navigationBarHeight)
-                    .lineLimit(1)
-                    
-                Spacer()
-            }
-            .padding(.leading, Values.middlePadding)
-            .padding(.trailing, Values.minorPadding)
+            Text(title)
+                .font(.system(size: Values.navigationTextSize, weight: .semibold))
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(height: Values.navigationBarHeight)
+                .lineLimit(1)
+                .padding(.leading, Values.middlePadding)
             
             Divider()
         }

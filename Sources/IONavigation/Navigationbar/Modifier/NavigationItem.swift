@@ -1,6 +1,6 @@
 //
 //  NavigationItem.swift
-//  UXlytics
+//  
 //
 //  Created by Kevin Waltz on 22.04.22.
 //
@@ -12,7 +12,6 @@ public struct NavigationItem: ViewModifier {
     public func body(content: Content) -> some View {
         HStack(alignment: .bottom, spacing: 0) {
             content
-                .frame(maxWidth: .infinity, alignment: .leading)
             
             VStack(alignment: .center, spacing: 0) {
                 Button(action: action) {
