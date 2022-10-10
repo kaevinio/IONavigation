@@ -12,7 +12,9 @@ struct ItemGroupView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: Values.minorPadding / 2) {
             if let header = header {
-                ItemGroupHeader(isCollapsed: $isCollapsed, header: header, isCollapsable: isCollapsable)
+                ItemGroupHeader(isCollapsed: $isCollapsed,
+                                header: header,
+                                isCollapsable: isCollapsable)
             }
             
             if !isCollapsed {
@@ -21,7 +23,12 @@ struct ItemGroupView: View {
                         Button {
                             self.selectedId = item.id
                         } label: {
-                            SidebarItem(item: item, isSelected: selectedId == item.id, color: color, defaultTextColor: defaultTextColor, selectionTextColor: selectionTextColor)
+                            SidebarItem(item: item,
+                                        isSelected: selectedId == item.id,
+                                        color: color,
+                                        defaultTextColor: defaultTextColor,
+                                        selectionTextColor: selectionTextColor,
+                                        selectionStyle: selectionStyle)
                         }
                         .buttonStyle(.plain)
                     }
@@ -45,5 +52,7 @@ struct ItemGroupView: View {
     
     let defaultTextColor: Color
     let selectionTextColor: Color
+    
+    let selectionStyle: SelectionStyle
     
 }

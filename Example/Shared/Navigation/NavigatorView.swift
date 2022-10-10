@@ -13,12 +13,23 @@ struct NavigatorView: View {
     var body: some View {
         #if os(iOS)
         if horizontalSizeClass == .compact {
-            Tabbar(items: tabbarItems, color: .blue, style: .rounded)
+            Tabbar(items: tabbarItems,
+                   color: .blue,
+                   style: .rounded)
         } else {
-            Sidebar(header: "IONavigation", color: .blue, itemGroups: sidebarItemGroups, actionIcon: Image(systemName: "plus.circle.fill"), action: add)
+            Sidebar(header: "IONavigation",
+                    color: .blue,
+                    itemGroups: sidebarItemGroups,
+                    actionIcon: Image(systemName: "plus.circle.fill"),
+                    action: add)
         }
         #else
-        Sidebar(header: "IONavigation", color: .blue, selectionTextColor: .white, itemGroups: sidebarItemGroups, actionIcon: Image(systemName: "plus.circle.fill"), action: add)
+        Sidebar(header: "IONavigation",
+                color: .blue,
+                selectionStyle: .border,
+                itemGroups: sidebarItemGroups,
+                actionIcon: Image(systemName: "plus.circle.fill"),
+                action: add)
         #endif
     }
     
@@ -56,18 +67,18 @@ struct NavigatorView: View {
     // My favorite way of dealing with the data for the items is to create enums, which I can iterate and map to create the needed items.
     
     private var sidebarItemGroups: [ItemGroup] {
-        [homeGroup(), appGroup(), settingsGroup()]
+        [homeGroup, appGroup, settingsGroup]
     }
     
-    private func homeGroup() -> ItemGroup {
+    private var homeGroup: ItemGroup {
         ItemGroup(id: "home", items: HomeTab.items)
     }
     
-    private func appGroup() -> ItemGroup {
+    private var appGroup: ItemGroup {
         ItemGroup(id: "library", header: "Library", items: LibraryTab.items)
     }
     
-    private func settingsGroup() -> ItemGroup {
+    private var settingsGroup: ItemGroup {
         ItemGroup(id: "settings", header: "Settings", items: SettingsTab.items, isCollapsable: false)
     }
     

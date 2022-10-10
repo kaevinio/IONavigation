@@ -14,7 +14,8 @@ public struct Sidebar: View {
                 header: String? = nil,
                 color: Color,
                 defaultTextColor: Color = .primary,
-                selectionTextColor: Color = .white,
+                selectionStyle: SelectionStyle = .fill,
+                selectionTextColor: Color = .primary,
                 itemGroups: [ItemGroup],
                 actionIcon: Image? = nil,
                 action: (() -> Void)? = nil) {
@@ -26,6 +27,8 @@ public struct Sidebar: View {
         self.itemGroups = itemGroups
         self.color = color
         self.defaultTextColor = defaultTextColor
+        
+        self.selectionStyle = selectionStyle
         self.selectionTextColor = selectionTextColor
         
         self.actionIcon = actionIcon
@@ -34,11 +37,19 @@ public struct Sidebar: View {
     
     public var body: some View {
         HStack(spacing: 0) {
-            SidebarView(selectedId: $sidebarSelection.selectedViewID, header: header, color: color, defaultTextColor: defaultTextColor, selectionTextColor: selectionTextColor, itemGroups: itemGroups, actionIcon: actionIcon, action: action)
-                .background(.regularMaterial)
-                .frame(maxHeight: .infinity)
-                .frame(width: Values.sidebarWidth)
-                .ignoresSafeArea(.keyboard, edges: .bottom)
+            SidebarView(selectedId: $sidebarSelection.selectedViewID,
+                        header: header,
+                        color: color,
+                        defaultTextColor: defaultTextColor,
+                        selectionStyle: selectionStyle,
+                        selectionTextColor: selectionTextColor,
+                        itemGroups: itemGroups,
+                        actionIcon: actionIcon,
+                        action: action)
+            .background(.regularMaterial)
+            .frame(maxHeight: .infinity)
+            .frame(width: Values.sidebarWidth)
+            .ignoresSafeArea(.keyboard, edges: .bottom)
             
             if let view = itemGroups.flatMap { $0.items }.filter { $0.id == sidebarSelection.selectedViewID }.first?.view {
                 view
@@ -68,6 +79,7 @@ public struct Sidebar: View {
     private let header: String?
     private let color: Color
     private let defaultTextColor: Color
+    private let selectionStyle: SelectionStyle
     private let selectionTextColor: Color
     private var itemGroups: [ItemGroup]
     

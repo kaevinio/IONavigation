@@ -27,6 +27,7 @@ struct SidebarItem: View {
         .background(.white.opacity(0.00001))
         .background(backgroundColor)
         .cornerRadius(Values.cornerRadius)
+        .overlay(RoundedRectangle(cornerRadius: Values.cornerRadius).strokeBorder(borderColor, lineWidth: 2))
         .onHover { hovering in
             self.isHovering = hovering
         }
@@ -45,12 +46,28 @@ struct SidebarItem: View {
     let defaultTextColor: Color
     let selectionTextColor: Color
     
+    let selectionStyle: SelectionStyle
+    
     
     
     // MARK: - Computed Properties
     
     var backgroundColor: Color {
-        if isSelected {
+        if selectionStyle == .border {
+            return .clear
+        } else if isSelected {
+            return color
+        } else if isHovering && !isSelected {
+            return color.opacity(0.2)
+        } else {
+            return .clear
+        }
+    }
+    
+    var borderColor: Color {
+        if selectionStyle == .fill {
+            return .clear
+        } else if isSelected {
             return color
         } else if isHovering && !isSelected {
             return color.opacity(0.2)
