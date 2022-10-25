@@ -10,19 +10,25 @@ import SwiftUI
 struct TabbarView: View {
     
     var body: some View {
-        HStack {
-            ForEach(items, id: \.id) { item in
-                Button {
-                    self.selectedId = item.id
-                } label: {
-                    TabbarItem(item: item, isSelected: selectedId == item.id, color: color, style: style)
+        VStack(spacing: Values.middlePadding / 2) {
+            Divider()
+                .frame(height: 1)
+                .overlay(.gray.opacity(0.1))
+            
+            HStack(spacing: 0) {
+                ForEach(items, id: \.id) { item in
+                    Button {
+                        self.selectedId = item.id
+                    } label: {
+                        TabbarItem(item: item, isSelected: selectedId == item.id, color: foregroundColor, style: style)
+                    }
+                    .buttonStyle(.plain)
                 }
-                .buttonStyle(.plain)
             }
+            .padding(.horizontal, Values.middlePadding)
         }
-        .frame(height: Values.tabbarHeight)
-        .padding(.horizontal, Values.middlePadding)
-        .padding(.bottom, Values.middlePadding)
+        .padding(.bottom, Values.majorPadding)
+        .background(backgroundColor)
     }
     
     
@@ -32,7 +38,8 @@ struct TabbarView: View {
     @Binding var selectedId: String
     
     let items: [Item]
-    let color: Color
+    let backgroundColor: Color
+    let foregroundColor: Color
     let style: TabStyle
     
 }

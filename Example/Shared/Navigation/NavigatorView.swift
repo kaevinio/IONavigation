@@ -14,18 +14,19 @@ struct NavigatorView: View {
         #if os(iOS)
         if horizontalSizeClass == .compact {
             Tabbar(items: tabbarItems,
-                   color: .blue,
+                   backgroundColor: Color("primaryBackground"),
+                   foregroundColor: .blue,
                    style: .rounded)
         } else {
             Sidebar(header: "IONavigation",
-                    color: .blue,
+                    foregroundColor: .blue,
                     itemGroups: sidebarItemGroups,
                     actionIcon: Image(systemName: "plus.circle.fill"),
                     action: add)
         }
         #else
         Sidebar(header: "IONavigation",
-                color: .blue,
+                foregroundColor: .blue,
                 selectionStyle: .border,
                 itemGroups: sidebarItemGroups,
                 actionIcon: Image(systemName: "plus.circle.fill"),

@@ -12,7 +12,7 @@ public struct Sidebar: View {
     public init(minWindowWidth: CGFloat = 800,
                 minWindowHeight: CGFloat = 600,
                 header: String? = nil,
-                color: Color,
+                foregroundColor: Color,
                 defaultTextColor: Color = .primary,
                 selectionStyle: SelectionStyle = .fill,
                 selectionTextColor: Color = .primary,
@@ -25,7 +25,7 @@ public struct Sidebar: View {
         
         self.header = header
         self.itemGroups = itemGroups
-        self.color = color
+        self.foregroundColor = foregroundColor
         self.defaultTextColor = defaultTextColor
         
         self.selectionStyle = selectionStyle
@@ -39,7 +39,7 @@ public struct Sidebar: View {
         HStack(spacing: 0) {
             SidebarView(selectedId: $sidebarSelection.selectedViewID,
                         header: header,
-                        color: color,
+                        color: foregroundColor,
                         defaultTextColor: defaultTextColor,
                         selectionStyle: selectionStyle,
                         selectionTextColor: selectionTextColor,
@@ -77,7 +77,7 @@ public struct Sidebar: View {
     let minWindowHeight: CGFloat
     
     private let header: String?
-    private let color: Color
+    private let foregroundColor: Color
     private let defaultTextColor: Color
     private let selectionStyle: SelectionStyle
     private let selectionTextColor: Color

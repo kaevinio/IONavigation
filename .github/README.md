@@ -1,4 +1,4 @@
-# IOComponents
+# IONavigation
 
 A simple and beautiful Sidebar, a Tabbar and a Navigationbar for iOS, iPadOS and macOS, written in 100% SwiftUI.
 

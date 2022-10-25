@@ -14,21 +14,17 @@ public struct Navigationbar: View {
     }
     
     public var body: some View {
-        VStack(spacing: 0) {
-            Text(title)
-                .font(.system(size: Values.navigationTextSize, weight: .semibold))
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .frame(height: Values.navigationBarHeight)
-                .lineLimit(1)
-                .padding(.leading, Values.middlePadding)
-            
-            Divider()
-        }
-        #if os(iOS)
-        .padding(.top, horizontalSizeClass == .compact ? 0 : Values.minorPadding)
-        #else
-        .padding(.top, Values.middlePadding)
-        #endif
+        Text(title)
+            .font(.system(size: Values.navigationTextSize, weight: .semibold))
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .frame(height: Values.navigationBarHeight)
+            .lineLimit(1)
+            .padding(.leading, Values.middlePadding)
+            #if os(iOS)
+            .padding(.top, horizontalSizeClass == .compact ? 0 : Values.minorPadding)
+            #else
+            .padding(.top, Values.middlePadding)
+            #endif
     }
     
     

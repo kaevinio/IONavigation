@@ -13,7 +13,7 @@ struct TabbarItem: View {
         HStack(alignment: .center) {
             Spacer()
             
-            ZStack {
+            ZStack(alignment: .center) {
                 switch style {
                 case .circle:
                     Circle()
@@ -25,7 +25,7 @@ struct TabbarItem: View {
                 
                 TabbarIcon(image: item.image, color: isSelected ? .white : color)
             }
-            .frame(width: Values.buttonSize, height: Values.buttonSize)
+            .frame(width: Values.itemSize, height: Values.itemSize)
             .onHover { hovering in
                 self.isHovering = hovering
             }

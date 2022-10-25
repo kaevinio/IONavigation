@@ -13,33 +13,29 @@ public struct NavigationItem: ViewModifier {
         HStack(alignment: .bottom, spacing: 0) {
             content
             
-            VStack(alignment: .center, spacing: 0) {
-                Button(action: action) {
-                    if let text = text {
-                        Text(text)
-                            .font(.system(size: 16, weight: boldText ?? true ? .semibold : .regular))
-                            .foregroundColor(color)
-                            .padding(Values.middlePadding / 2)
-                            .background(isHovering ? color.opacity(0.1) : color.opacity(0))
-                            .cornerRadius(Values.cornerRadius)
-                    } else if let image = image {
-                        image
-                            .resizable()
-                            .scaledToFit()
-                            .foregroundColor(color)
-                            .frame(width: Values.navigationItemSize, height: Values.navigationItemSize)
-                            .padding(Values.middlePadding / 2)
-                            .background(isHovering ? color.opacity(0.1) : color.opacity(0))
-                            .cornerRadius(Values.cornerRadius)
-                    }
+            Button(action: action) {
+                if let text = text {
+                    Text(text)
+                        .font(.system(size: 16, weight: boldText ?? true ? .semibold : .regular))
+                        .foregroundColor(color)
+                        .padding(Values.middlePadding / 2)
+                        .background(isHovering ? color.opacity(0.1) : color.opacity(0))
+                        .cornerRadius(Values.cornerRadius)
+                } else if let image = image {
+                    image
+                        .resizable()
+                        .scaledToFit()
+                        .foregroundColor(color)
+                        .frame(width: Values.navigationItemSize, height: Values.navigationItemSize)
+                        .padding(Values.middlePadding / 2)
+                        .background(isHovering ? color.opacity(0.1) : color.opacity(0))
+                        .cornerRadius(Values.cornerRadius)
                 }
-                .frame(height: Values.navigationBarHeight)
-                .padding(.trailing, Values.middlePadding)
-                .disabled(disabled)
-                .buttonStyle(.plain)
-                
-                Divider()
             }
+            .frame(height: Values.navigationBarHeight)
+            .padding(.trailing, Values.minorPadding)
+            .disabled(disabled)
+            .buttonStyle(.plain)
             .fixedSize()
             #if os(iOS)
             .padding(.top, horizontalSizeClass == .compact ? 0 : Values.minorPadding)
