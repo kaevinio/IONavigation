@@ -11,36 +11,17 @@ public struct SidebarToggle: ViewModifier {
     
     public func body(content: Content) -> some View {
         HStack(alignment: .bottom, spacing: 0) {
-            Button(action: toggleSidebar) {
-                ZStack {
-                    RoundedRectangle(cornerRadius: Values.cornerRadius)
-                        .frame(width: Values.itemSize, height: Values.itemSize)
-                        .foregroundColor(isHovering ? color.opacity(0.1) : .clear)
-                    
-                    Image(systemName: "sidebar.squares.leading")
-                        .font(.system(size: Values.navigationItemSize, weight: .bold))
-                        .foregroundColor(color)
-                        .scaledToFit()
-                }
-            }
-            .buttonStyle(.plain)
-            .frame(height: Values.navigationBarHeight)
-            .padding(.leading, Values.minorPadding)
-            .frame(width: Values.navigationBarHeight)
             #if os(iOS)
-            .padding(.top, horizontalSizeClass == .compact ? 0 : Values.minorPadding)
-            .padding(.trailing, horizontalSizeClass == .compact ? 0 : Values.middlePadding)
-            #else
-            .padding(.top, Values.middlePadding)
-            #endif
-            .onHover { hovering in
-                self.isHovering = hovering
+            if horizontalSizeClass == .regular {
+                NavigationBarButton(icon: Image(systemName: "sidebar.squares.leading"), color: color, action: toggleSidebar)
+                    .padding(.top, horizontalSizeClass == .compact ? 0 : Values.minorPadding)
             }
+            #else
+            NavigationBarButton(icon: Image(systemName: "sidebar.squares.leading"), color: color, action: toggleSidebar)
+                .padding(.top, Values.middlePadding)
+            #endif
             
             content
-                #if os(iOS)
-                .padding(.leading, -Values.middlePadding)
-                #endif
         }
     }
     
@@ -51,8 +32,6 @@ public struct SidebarToggle: ViewModifier {
     #if os(iOS)
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     #endif
-    
-    @State private var isHovering = false
     
     let color: Color
     

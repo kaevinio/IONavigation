@@ -12,41 +12,15 @@ public struct BackItem: ViewModifier {
     public func body(content: Content) -> some View {
         HStack(alignment: .bottom, spacing: 0) {
             #if os(iOS)
-            VStack(alignment: .center, spacing: 0) {
-                Button(action: goBack) {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: Values.cornerRadius)
-                            .frame(width: Values.itemSize, height: Values.itemSize)
-                            .foregroundColor(isHovering ? color.opacity(0.1) : .clear)
-                        
-                        Image(systemName: "chevron.left")
-                            .font(.system(size: Values.navigationItemSize, weight: .bold))
-                            .foregroundColor(color)
-                            .scaledToFit()
-                    }
-                }
-                .buttonStyle(.plain)
-                .frame(height: Values.navigationBarHeight)
-                .padding(.leading, Values.minorPadding)
-                
-                Divider()
-                    .padding(.trailing, Values.middlePadding)
-            }
-            .frame(width: Values.navigationBarHeight)
-            #if os(iOS)
-            .padding(.top, horizontalSizeClass == .compact ? 0 : Values.minorPadding)
-            #else
-            .padding(.top, Values.middlePadding)
-            #endif
-            .onHover { hovering in
-                self.isHovering = hovering
-            }
+            NavigationBarButton(icon: Image(systemName: "chevron.left"), color: color, action: goBack)
+                #if os(iOS)
+                .padding(.top, horizontalSizeClass == .compact ? 0 : Values.minorPadding)
+                #else
+                .padding(.top, Values.middlePadding)
+                #endif
             #endif
             
             content
-                #if os(iOS)
-                .padding(.leading, -Values.middlePadding)
-                #endif
         }
     }
     

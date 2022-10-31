@@ -6,7 +6,7 @@ A simple and beautiful Sidebar, a Tabbar and a Navigationbar for iOS, iPadOS and
 ---
 
 ### 💰 Support
-I fell in love with coding in 2016 and there has been no looking back since! If you, or your company, use any of my projects or like what I'm doing, kindly consider supporting me.
+If you, or your company, use any of my projects or like what I'm doing, kindly consider supporting me.
 
 I really appreciate you **[buying me a coffee ☕️](https://ko-fi.com/kaevin)**
 
@@ -90,9 +90,9 @@ The Sidebar consists of several groups, which contain individual views and is di
 ```Swift
 #if os(iOS)
 if horizontalSizeClass == .compact {
-      Tabbar(items: tabbarItems, color: .purple)
+      Tabbar(items: tabbarItems, color: .blue)
 } else {
-      Sidebar(header: "IONavigation", color: .purple, itemGroups: sidebarItemGroups, actionIcon: Image(systemName: "plus.circle.fill"), action: add)
+      Sidebar(header: "IONavigation", color: .blue, itemGroups: sidebarItemGroups, actionIcon: Image(systemName: "plus.circle.fill"), action: add)
 }
 #else
 Sidebar(header: "IONavigation", color: .purple, itemGroups: sidebarItemGroups, actionIcon: Image(systemName: "plus.circle.fill"), action: add)
@@ -140,13 +140,14 @@ var body: some View {
 
 This will display a blank Navigationbar with a header. You can also add either a **BackButton**, which is displayed on the *leading* side of the header (for deeper navigation) or you can add one or multiple **NavigationItems**, which will be added to *trailing* side of the Navigationbar. You can choose between an **icon** and **text** to be shown.
 
-- To show NavigationItems, use the built-in ViewModifier `.navigationItem`:
+- To show NavigationItems, use the built-in ViewModifier `.navigationItem`. There is a specific navigationItem with which you can toggle the sidebar (on macOS and iPadOS). It will show on the leading side of the Navigationbar and its value value is saved in AppStorage, so your users won't have to toggle it on each app start.
 ```Swift
 var body: some View {
       VStack(spacing: 0) {
           Navigationbar(title: "Header")
-              .navigationItem(image: Image(systemName: "heart.fill"), color: .purple, action: {})
-              .navigationItem(image: Image(systemName: "bookmark.fill"), color: .purple, action: {})
+              .sidebarToggle(color: .blue)
+              .navigationItem(image: Image(systemName: "heart.fill"), color: .blue, action: {})
+              .navigationItem(image: Image(systemName: "bookmark.fill"), color: .blue, action: {})
 
           // Here will be your views
           ScrollView {
