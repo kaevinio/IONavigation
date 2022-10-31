@@ -33,23 +33,27 @@ public struct Sidebar: View {
         
         self.actionIcon = actionIcon
         self.action = action
+        
+        _showSidebar = State(initialValue: sidebarShown)
     }
     
     public var body: some View {
         HStack(spacing: 0) {
-            SidebarView(selectedId: $sidebarSelection.selectedViewID,
-                        header: header,
-                        color: foregroundColor,
-                        defaultTextColor: defaultTextColor,
-                        selectionStyle: selectionStyle,
-                        selectionTextColor: selectionTextColor,
-                        itemGroups: itemGroups,
-                        actionIcon: actionIcon,
-                        action: action)
-            .background(.regularMaterial)
-            .frame(maxHeight: .infinity)
-            .frame(width: Values.sidebarWidth)
-            .ignoresSafeArea(.keyboard, edges: .bottom)
+            if showSidebar {
+                SidebarView(selectedId: $sidebarSelection.selectedViewID,
+                            header: header,
+                            color: foregroundColor,
+                            defaultTextColor: defaultTextColor,
+                            selectionStyle: selectionStyle,
+                            selectionTextColor: selectionTextColor,
+                            itemGroups: itemGroups,
+                            actionIcon: actionIcon,
+                            action: action)
+                .background(.regularMaterial)
+                .frame(maxHeight: .infinity)
+                .frame(width: Values.sidebarWidth)
+                .ignoresSafeArea(.keyboard, edges: .bottom)
+            }
             
             if let view = itemGroups.flatMap { $0.items }.filter { $0.id == sidebarSelection.selectedViewID }.first?.view {
                 view
@@ -69,11 +73,19 @@ public struct Sidebar: View {
                 self.sidebarSelection.selectedViewID = self.itemGroups.first?.items.first?.id ?? ""
             }
         }
+        .onChange(of: sidebarShown) { value in
+            withAnimation(.easeInOut(duration: 0.2)) {
+                showSidebar = value
+            }
+        }
     }
     
     
     
     // MARK: - Variables
+    
+    @AppStorage("sidebarShown") private var sidebarShown: Bool = true
+    @State private var showSidebar: Bool = true
     
     @StateObject private var sidebarSelection = SidebarSelection.shared
     

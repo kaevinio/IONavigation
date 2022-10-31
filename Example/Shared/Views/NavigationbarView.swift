@@ -13,6 +13,7 @@ struct NavigationbarView: View {
     var body: some View {
         VStack(spacing: 0) {
             Navigationbar(title: "Navigationbar")
+                .sidebarToggle(color: .blue)
                 .navigationItem(image: Image(systemName: "magnifyingglass"), color: .blue, action: selectSearchTab)
             
             ScrollView {
