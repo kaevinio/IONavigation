@@ -34,6 +34,11 @@ struct SidebarView: View {
         }
         .frame(maxWidth: .infinity)
         .padding(.horizontal, Values.middlePadding)
+        #if os(macOS)
+        .padding(.top, Values.middlePadding)
+        .background(TranslucentView(material: .sidebar))
+        .ignoresSafeArea(.all)
+        #endif
     }
     
     

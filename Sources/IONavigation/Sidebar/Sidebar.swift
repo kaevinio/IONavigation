@@ -54,9 +54,13 @@ public struct Sidebar: View {
             if let view = itemGroups.flatMap { $0.items }.filter { $0.id == sidebarSelection.selectedViewID }.first?.view {
                 view
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .padding(.top, Values.middlePadding)
+                    .ignoresSafeArea(.all)
             } else {
                 Text("")
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .padding(.top, Values.middlePadding)
+                    .ignoresSafeArea(.all)
             }
         }
         .macWindowSize(minWidth: minWindowWidth, minHeight: minWindowHeight)
