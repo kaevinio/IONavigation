@@ -16,9 +16,9 @@ public struct ItemGroup {
         self.isCollapsable = isCollapsable
     }
     
-    let id: String
-    let header: String?
-    let items: [Item]
-    let isCollapsable: Bool
+    public let id: String
+    public let header: String?
+    public let items: [Item]
+    public let isCollapsable: Bool
     
 }

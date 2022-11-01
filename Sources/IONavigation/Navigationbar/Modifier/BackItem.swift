@@ -15,6 +15,7 @@ public struct BackItem: ViewModifier {
             NavigationBarButton(icon: Image(systemName: "chevron.left"), color: color, action: goBack)
                 #if os(iOS)
                 .padding(.top, horizontalSizeClass == .compact ? 0 : Values.minorPadding)
+                .padding(.trailing, horizontalSizeClass == .compact ? -Values.minorPadding : 0)
                 #else
                 .padding(.top, Values.middlePadding)
                 #endif
@@ -49,7 +50,7 @@ public struct BackItem: ViewModifier {
 }
 
 extension View {
-    public func backItem(color: Color) -> some View {
+    public func backItem(color: Color = .primary) -> some View {
         modifier(BackItem(color: color))
     }
 }

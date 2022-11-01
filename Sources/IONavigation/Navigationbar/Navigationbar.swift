@@ -23,7 +23,7 @@ public struct Navigationbar: View {
             #if os(iOS)
             .padding(.top, horizontalSizeClass == .compact ? 0 : Values.minorPadding)
             #else
-            .padding(.top, Values.minorPadding)
+            .padding(.top, Values.middlePadding)
             #endif
     }
     
