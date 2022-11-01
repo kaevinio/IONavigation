@@ -49,11 +49,13 @@ public struct Sidebar: View {
                             itemGroups: itemGroups,
                             actionIcon: actionIcon,
                             action: action)
-                .background(.regularMaterial)
                 .frame(maxHeight: .infinity)
                 .frame(width: Values.sidebarWidth)
                 .ignoresSafeArea(.keyboard, edges: .bottom)
             }
+            
+            Divider()
+                .ignoresSafeArea(.all)
             
             if let view = itemGroups.flatMap { $0.items }.filter { $0.id == sidebarSelection.selectedViewID }.first?.view {
                 view

@@ -28,16 +28,13 @@ struct SidebarView: View {
                                       selectionStyle: selectionStyle)
                     }
                 }
-                .padding(.top, Values.minorPadding)
-                .padding(.bottom, Values.majorPadding)
+                .padding(.bottom, Values.minorPadding)
             }
         }
         .frame(maxWidth: .infinity)
         .padding(.horizontal, Values.middlePadding)
         #if os(macOS)
-        .padding(.top, Values.middlePadding)
-        .background(TranslucentView(material: .sidebar))
-        .ignoresSafeArea(.all)
+        .translucentBackground()
         #endif
     }
     
