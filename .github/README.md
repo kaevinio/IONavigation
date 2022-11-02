@@ -60,7 +60,8 @@ Special thanks to **[SPACE SQUAD](https://www.spacesquad.de)** for backing this 
 
 
 ## 🎥 Preview
-<video src="https://user-images.githubusercontent.com/95750332/173130742-a08b379e-ca53-4014-8e8c-9a7350f22233.mov" width="600">|
+<video src="https://user-images.githubusercontent.com/95750332/199588478-cc3bb161-07d0-4da1-8d42-6ce66d0718f6.mov" width="600">|
+
 
 
 ## 🛠 Installation
