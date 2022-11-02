@@ -11,11 +11,8 @@ public struct Sidebar: View {
     
     public init(minWindowWidth: CGFloat = 800,
                 minWindowHeight: CGFloat = 600,
+                color: Color,
                 header: String? = nil,
-                foregroundColor: Color,
-                defaultTextColor: Color = .primary,
-                selectionStyle: SelectionStyle = .fill,
-                selectionTextColor: Color = .primary,
                 itemGroups: [ItemGroup],
                 actionIcon: Image? = nil,
                 action: (() -> Void)? = nil) {
@@ -23,13 +20,9 @@ public struct Sidebar: View {
         self.minWindowWidth = minWindowWidth
         self.minWindowHeight = minWindowHeight
         
+        self.color = color
         self.header = header
         self.itemGroups = itemGroups
-        self.foregroundColor = foregroundColor
-        self.defaultTextColor = defaultTextColor
-        
-        self.selectionStyle = selectionStyle
-        self.selectionTextColor = selectionTextColor
         
         self.actionIcon = actionIcon
         self.action = action
@@ -41,11 +34,8 @@ public struct Sidebar: View {
         HStack(spacing: 0) {
             if showSidebar {
                 SidebarView(selectedId: $sidebarSelection.selectedViewID,
+                            color: color,
                             header: header,
-                            color: foregroundColor,
-                            defaultTextColor: defaultTextColor,
-                            selectionStyle: selectionStyle,
-                            selectionTextColor: selectionTextColor,
                             itemGroups: itemGroups,
                             actionIcon: actionIcon,
                             action: action)
@@ -94,11 +84,8 @@ public struct Sidebar: View {
     let minWindowWidth: CGFloat
     let minWindowHeight: CGFloat
     
+    private let color: Color
     private let header: String?
-    private let foregroundColor: Color
-    private let defaultTextColor: Color
-    private let selectionStyle: SelectionStyle
-    private let selectionTextColor: Color
     private var itemGroups: [ItemGroup]
     
     private let actionIcon: Image?

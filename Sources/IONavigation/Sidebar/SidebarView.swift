@@ -21,11 +21,7 @@ struct SidebarView: View {
                         ItemGroupView(selectedId: $selectedId,
                                       header: group.header,
                                       items: group.items,
-                                      isCollapsable: group.isCollapsable,
-                                      color: color,
-                                      defaultTextColor: defaultTextColor,
-                                      selectionTextColor: selectionTextColor,
-                                      selectionStyle: selectionStyle)
+                                      isCollapsable: group.isCollapsable)
                     }
                 }
                 .padding(.bottom, Values.minorPadding)
@@ -45,11 +41,9 @@ struct SidebarView: View {
     
     @Binding public var selectedId: String
     
-    let header: String?
     let color: Color
-    let defaultTextColor: Color
-    let selectionStyle: SelectionStyle
-    let selectionTextColor: Color
+    let header: String?
+    
     let itemGroups: [ItemGroup]
     
     let actionIcon: Image?
