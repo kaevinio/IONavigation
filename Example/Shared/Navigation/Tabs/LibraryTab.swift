@@ -41,7 +41,12 @@ enum LibraryTab: String, CaseIterable {
     // Items for navigation
     
     static var items: [Item] {
-        LibraryTab.allCases.map { Item(id: $0.rawValue, title: $0.title, image: $0.icon, view: $0.view) }
+        let background = AnyView(Capsule().strokeBorder(
+            LinearGradient(gradient: Gradient(colors: [.blue, .white]), startPoint: .topLeading, endPoint: .bottomTrailing),
+            lineWidth: 2)
+        )
+        
+        return LibraryTab.allCases.map { Item(id: $0.rawValue, title: $0.title, image: $0.icon, selectionBackground: background, view: $0.view) }
     }
     
 }

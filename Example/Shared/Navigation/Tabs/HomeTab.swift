@@ -44,7 +44,11 @@ enum HomeTab: String, CaseIterable {
     // Items for navigation
     
     static var items: [Item] {
-        HomeTab.allCases.map { Item(id: $0.rawValue, title: $0.title, image: $0.icon, view: $0.view) }
+        let background = AnyView(Capsule().fill(
+            LinearGradient(gradient: Gradient(colors: [.red, .orange]), startPoint: .topLeading, endPoint: .bottomTrailing))
+        )
+        
+        return HomeTab.allCases.map { Item(id: $0.rawValue, title: $0.title, image: $0.icon, selectionBackground: background, view: $0.view) }
     }
     
 }

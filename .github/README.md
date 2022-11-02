@@ -1,6 +1,6 @@
 # IONavigation
 
-A simple and beautiful Sidebar, a Tabbar and a Navigationbar for iOS, iPadOS and macOS, written in 100% SwiftUI.
+A simple and highly customizable Sidebar, a Tabbar and a Navigationbar for iOS, iPadOS and macOS, written in 100% SwiftUI.
 
 
 ---
@@ -92,15 +92,15 @@ The Sidebar consists of several groups, which contain individual views and is di
 if horizontalSizeClass == .compact {
       Tabbar(items: tabbarItems, color: .blue)
 } else {
-      Sidebar(header: "IONavigation", color: .blue, itemGroups: sidebarItemGroups, actionIcon: Image(systemName: "plus.circle.fill"), action: add)
+      Sidebar(color: .blue, header: "IONavigation", itemGroups: sidebarItemGroups, actionIcon: Image(systemName: "plus.circle.fill"), action: add)
 }
 #else
-Sidebar(header: "IONavigation", color: .purple, itemGroups: sidebarItemGroups, actionIcon: Image(systemName: "plus.circle.fill"), action: add)
+Sidebar(color: .blue, header: "IONavigation", itemGroups: sidebarItemGroups, actionIcon: Image(systemName: "plus.circle.fill"), action: add)
 #endif
 ```
 Note: `Header`, `actionIcon` and `action` are optional. If you don't use a `header`, the `actionIcon` will not be displayed either.
 
-You pass an array of `Item` for the Tabbar but an array of `ItemGroup` to the Sidebar. This is because the Sidebar supports different groups, which can be collapsed.
+You pass an array of `Item` for the Tabbar but an array of `ItemGroup` to the Sidebar. This is because the Sidebar supports different groups, which can be collapsed. The color passed to the Sidebar is used as the default selection background. You can set custom backgrounds for each sidebar item. Check out the example project on how to do it.
 
 You can also select views from your sidebar programmatically. In your view, add the following property:
 
