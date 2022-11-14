@@ -11,7 +11,6 @@ public struct BackItem: ViewModifier {
     
     public func body(content: Content) -> some View {
         HStack(alignment: .bottom, spacing: 0) {
-            #if os(iOS)
             NavigationBarButton(icon: Image(systemName: "chevron.left"), color: color, action: goBack)
                 #if os(iOS)
                 .padding(.top, horizontalSizeClass == .compact ? 0 : Values.minorPadding)
@@ -19,7 +18,6 @@ public struct BackItem: ViewModifier {
                 #else
                 .padding(.top, Values.middlePadding)
                 #endif
-            #endif
             
             content
         }
