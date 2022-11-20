@@ -14,7 +14,6 @@ struct SidebarHeader: View {
             HStack(spacing: 0) {
                 Text(header)
                     .font(.system(size: Values.navigationTextSize, weight: .semibold))
-                    .foregroundColor(.primary)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .frame(height: Values.navigationBarHeight)
                 

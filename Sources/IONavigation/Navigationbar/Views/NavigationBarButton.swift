@@ -11,16 +11,14 @@ struct NavigationBarButton: View {
     
     var body: some View {
         Button(action: action) {
-            ZStack {
-                RoundedRectangle(cornerRadius: Values.cornerRadius)
-                    .frame(width: Values.itemSize, height: Values.itemSize)
-                    .foregroundColor(isHovering ? color.opacity(0.1) : .clear)
-                
-                icon
-                    .font(.system(size: Values.navigationItemSize, weight: .bold))
-                    .foregroundColor(color)
-                    .scaledToFit()
-            }
+            icon
+                .resizable()
+                .scaledToFit()
+                .foregroundColor(.primary)
+                .frame(width: Values.navigationItemSize, height: Values.navigationItemSize)
+                .padding(Values.middlePadding / 2)
+                .background(isHovering ? color.opacity(0.1) : .clear)
+                .cornerRadius(Values.cornerRadius)
         }
         .buttonStyle(.plain)
         .frame(height: Values.navigationBarHeight)

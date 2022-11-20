@@ -14,10 +14,10 @@ struct SidebarButton: View {
             image
                 .resizable()
                 .scaledToFit()
-                .foregroundColor(color)
+                .foregroundColor(.primary)
                 .frame(width: Values.navigationItemSize, height: Values.navigationItemSize)
                 .padding(Values.middlePadding / 2)
-                .background(isHovering ? color.opacity(0.1) : color.opacity(0))
+                .background(isHovering ? color.opacity(0.1) : .clear)
                 .cornerRadius(Values.cornerRadius)
         }
         .buttonStyle(.plain)

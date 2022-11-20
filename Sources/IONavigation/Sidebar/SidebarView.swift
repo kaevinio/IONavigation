@@ -12,7 +12,7 @@ struct SidebarView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             if let header = header {
-                SidebarHeader(header: header, color: color, actionIcon: actionIcon, action: action)
+                SidebarHeader(header: header, color: foregroundColor, actionIcon: actionIcon, action: action)
             }
             
             ScrollView(showsIndicators: false) {
@@ -31,6 +31,8 @@ struct SidebarView: View {
         .padding(.horizontal, Values.middlePadding)
         #if os(macOS)
         .translucentBackground()
+        #else
+        .background(backgroundColor)
         #endif
     }
     
@@ -41,7 +43,8 @@ struct SidebarView: View {
     
     @Binding public var selectedId: String
     
-    let color: Color
+    let backgroundColor: Color
+    let foregroundColor: Color
     let header: String?
     
     let itemGroups: [ItemGroup]
