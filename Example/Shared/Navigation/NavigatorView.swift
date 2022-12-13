@@ -18,14 +18,16 @@ struct NavigatorView: View {
                    foregroundColor: .blue,
                    style: .rounded)
         } else {
-            Sidebar(color: .blue,
-                    header: "IONavigation",
+            Sidebar(backgroundColor: Color("primaryBackground"),
                     foregroundColor: .blue,
+                    header: "IONavigation",
+                    itemGroups: sidebarItemGroups,
                     actionIcon: Image(systemName: "plus.circle.fill"),
                     action: add)
         }
         #else
-        Sidebar(color: .blue,
+        Sidebar(backgroundColor: Color("primaryBackground"),
+                foregroundColor: .blue,
                 header: "IONavigation",
                 itemGroups: sidebarItemGroups,
                 actionIcon: Image(systemName: "plus.circle.fill"),

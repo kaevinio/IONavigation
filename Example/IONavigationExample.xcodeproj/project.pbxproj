@@ -8,27 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		4E8A65A82853767000EC4F5B /* IONavigationExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A65982853766F00EC4F5B /* IONavigationExampleApp.swift */; };
-		4E8A65A92853767000EC4F5B /* IONavigationExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A65982853766F00EC4F5B /* IONavigationExampleApp.swift */; };
 		4E8A65AA2853767000EC4F5B /* BasicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A65992853766F00EC4F5B /* BasicView.swift */; };
-		4E8A65AB2853767000EC4F5B /* BasicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A65992853766F00EC4F5B /* BasicView.swift */; };
 		4E8A65AC2853767000EC4F5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E8A659A2853767000EC4F5B /* Assets.xcassets */; };
-		4E8A65AD2853767000EC4F5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E8A659A2853767000EC4F5B /* Assets.xcassets */; };
 		4E8A65BB2853773400EC4F5B /* NavigatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A65BA2853773400EC4F5B /* NavigatorView.swift */; };
-		4E8A65BC2853773400EC4F5B /* NavigatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A65BA2853773400EC4F5B /* NavigatorView.swift */; };
-		4E8A65BF2853776B00EC4F5B /* IONavigation in Frameworks */ = {isa = PBXBuildFile; productRef = 4E8A65BE2853776B00EC4F5B /* IONavigation */; };
 		4E8A65C12853777500EC4F5B /* IONavigation in Frameworks */ = {isa = PBXBuildFile; productRef = 4E8A65C02853777500EC4F5B /* IONavigation */; };
 		4E8A65C72853785A00EC4F5B /* HomeTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A65C62853785A00EC4F5B /* HomeTab.swift */; };
-		4E8A65C82853785A00EC4F5B /* HomeTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A65C62853785A00EC4F5B /* HomeTab.swift */; };
 		4E8A65CB2853786500EC4F5B /* LibraryTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A65CA2853786500EC4F5B /* LibraryTab.swift */; };
-		4E8A65CC2853786500EC4F5B /* LibraryTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A65CA2853786500EC4F5B /* LibraryTab.swift */; };
 		4E8A65CE2853787000EC4F5B /* SettingsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A65CD2853787000EC4F5B /* SettingsTab.swift */; };
-		4E8A65CF2853787000EC4F5B /* SettingsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8A65CD2853787000EC4F5B /* SettingsTab.swift */; };
 		4EA39444285387050017BBC6 /* NavigationbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA39443285387050017BBC6 /* NavigationbarView.swift */; };
-		4EA39445285387050017BBC6 /* NavigationbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA39443285387050017BBC6 /* NavigationbarView.swift */; };
 		4EA394472853870C0017BBC6 /* NavigationbarSingleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA394462853870C0017BBC6 /* NavigationbarSingleItemView.swift */; };
-		4EA394482853870C0017BBC6 /* NavigationbarSingleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA394462853870C0017BBC6 /* NavigationbarSingleItemView.swift */; };
 		4EA3944A285388130017BBC6 /* NavigationbarMultipleItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA39449285388130017BBC6 /* NavigationbarMultipleItemsView.swift */; };
-		4EA3944B285388130017BBC6 /* NavigationbarMultipleItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EA39449285388130017BBC6 /* NavigationbarMultipleItemsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +25,6 @@
 		4E8A65992853766F00EC4F5B /* BasicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicView.swift; sourceTree = "<group>"; };
 		4E8A659A2853767000EC4F5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E8A659F2853767000EC4F5B /* IONavigationExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IONavigationExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4E8A65A52853767000EC4F5B /* IONavigationExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IONavigationExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E8A65A72853767000EC4F5B /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		4E8A65B72853769800EC4F5B /* IONavigation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = IONavigation; path = ..; sourceTree = "<group>"; };
 		4E8A65BA2853773400EC4F5B /* NavigatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatorView.swift; sourceTree = "<group>"; };
@@ -57,14 +45,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4E8A65A22853767000EC4F5B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4E8A65BF2853776B00EC4F5B /* IONavigation in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -73,7 +53,6 @@
 			children = (
 				4E8A65B62853769800EC4F5B /* Packages */,
 				4E8A65972853766F00EC4F5B /* Shared */,
-				4E8A65A62853767000EC4F5B /* macOS */,
 				4E8A65A02853767000EC4F5B /* Products */,
 				4E8A65BD2853776B00EC4F5B /* Frameworks */,
 			);
@@ -84,6 +63,7 @@
 			children = (
 				4E8A659A2853767000EC4F5B /* Assets.xcassets */,
 				4E8A65982853766F00EC4F5B /* IONavigationExampleApp.swift */,
+				4EDE881829490EC700113FD4 /* Config */,
 				4E8A65C42853784400EC4F5B /* Navigation */,
 				4E8A65C3285377A800EC4F5B /* Views */,
 			);
@@ -94,17 +74,8 @@
 			isa = PBXGroup;
 			children = (
 				4E8A659F2853767000EC4F5B /* IONavigationExample.app */,
-				4E8A65A52853767000EC4F5B /* IONavigationExample.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		4E8A65A62853767000EC4F5B /* macOS */ = {
-			isa = PBXGroup;
-			children = (
-				4E8A65A72853767000EC4F5B /* macOS.entitlements */,
-			);
-			path = macOS;
 			sourceTree = "<group>";
 		};
 		4E8A65B62853769800EC4F5B /* Packages */ = {
@@ -152,6 +123,14 @@
 			path = Tabs;
 			sourceTree = "<group>";
 		};
+		4EDE881829490EC700113FD4 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				4E8A65A72853767000EC4F5B /* macOS.entitlements */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -175,26 +154,6 @@
 			productReference = 4E8A659F2853767000EC4F5B /* IONavigationExample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4E8A65A42853767000EC4F5B /* IONavigationExample (macOS) */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 4E8A65B32853767000EC4F5B /* Build configuration list for PBXNativeTarget "IONavigationExample (macOS)" */;
-			buildPhases = (
-				4E8A65A12853767000EC4F5B /* Sources */,
-				4E8A65A22853767000EC4F5B /* Frameworks */,
-				4E8A65A32853767000EC4F5B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "IONavigationExample (macOS)";
-			packageProductDependencies = (
-				4E8A65BE2853776B00EC4F5B /* IONavigation */,
-			);
-			productName = "IONavigationExample (macOS)";
-			productReference = 4E8A65A52853767000EC4F5B /* IONavigationExample.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -206,9 +165,6 @@
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					4E8A659E2853767000EC4F5B = {
-						CreatedOnToolsVersion = 13.4.1;
-					};
-					4E8A65A42853767000EC4F5B = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
 				};
@@ -227,7 +183,6 @@
 			projectRoot = "";
 			targets = (
 				4E8A659E2853767000EC4F5B /* IONavigationExample (iOS) */,
-				4E8A65A42853767000EC4F5B /* IONavigationExample (macOS) */,
 			);
 		};
 /* End PBXProject section */
@@ -238,14 +193,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E8A65AC2853767000EC4F5B /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4E8A65A32853767000EC4F5B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4E8A65AD2853767000EC4F5B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,22 +212,6 @@
 				4EA394472853870C0017BBC6 /* NavigationbarSingleItemView.swift in Sources */,
 				4EA39444285387050017BBC6 /* NavigationbarView.swift in Sources */,
 				4E8A65A82853767000EC4F5B /* IONavigationExampleApp.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		4E8A65A12853767000EC4F5B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4E8A65C82853785A00EC4F5B /* HomeTab.swift in Sources */,
-				4E8A65CF2853787000EC4F5B /* SettingsTab.swift in Sources */,
-				4E8A65CC2853786500EC4F5B /* LibraryTab.swift in Sources */,
-				4E8A65AB2853767000EC4F5B /* BasicView.swift in Sources */,
-				4EA3944B285388130017BBC6 /* NavigationbarMultipleItemsView.swift in Sources */,
-				4E8A65BC2853773400EC4F5B /* NavigatorView.swift in Sources */,
-				4EA394482853870C0017BBC6 /* NavigationbarSingleItemView.swift in Sources */,
-				4EA39445285387050017BBC6 /* NavigationbarView.swift in Sources */,
-				4E8A65A92853767000EC4F5B /* IONavigationExampleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,8 +347,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -427,7 +358,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.kaevin.IONavigationExample;
 				PRODUCT_NAME = IONavigationExample;
 				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -450,8 +381,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -461,75 +392,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.kaevin.IONavigationExample;
 				PRODUCT_NAME = IONavigationExample;
 				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		4E8A65B42853767000EC4F5B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = LMC4PETVDG;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.kaevin.IONavigationExample;
-				PRODUCT_NAME = IONavigationExample;
-				SDKROOT = macosx;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		4E8A65B52853767000EC4F5B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = LMC4PETVDG;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.kaevin.IONavigationExample;
-				PRODUCT_NAME = IONavigationExample;
-				SDKROOT = macosx;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -554,22 +423,9 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4E8A65B32853767000EC4F5B /* Build configuration list for PBXNativeTarget "IONavigationExample (macOS)" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				4E8A65B42853767000EC4F5B /* Debug */,
-				4E8A65B52853767000EC4F5B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		4E8A65BE2853776B00EC4F5B /* IONavigation */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = IONavigation;
-		};
 		4E8A65C02853777500EC4F5B /* IONavigation */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = IONavigation;

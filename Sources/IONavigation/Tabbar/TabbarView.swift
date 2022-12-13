@@ -27,13 +27,19 @@ struct TabbarView: View {
             }
             .padding(.horizontal, Values.middlePadding)
         }
-        .padding(.bottom, Values.majorPadding)
+        #if os(iOS)
+        .padding(.bottom, Values.middlePadding / 2 + safeAreaInsets.bottom)
+        #endif
         .background(backgroundColor)
     }
     
     
     
     // MARK: - Variables
+    
+    #if os(iOS)
+    @Environment(\.safeAreaInsets) private var safeAreaInsets
+    #endif
     
     @Binding var selectedId: String
     
