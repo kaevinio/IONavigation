@@ -17,8 +17,8 @@ struct SidebarHeader: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .frame(height: Values.navigationBarHeight)
                 
-                if let actionIcon = actionIcon, let action = action {
-                    SidebarButton(image: actionIcon, color: color, action: action)
+                if let actionIcon, let action {
+                    SidebarButton(image: actionIcon, color: color, tooltip: actionTooltip, action: action)
                 }
             }
             .padding(.leading, Values.minorPadding / 2)
@@ -38,6 +38,7 @@ struct SidebarHeader: View {
     let color: Color
     
     let actionIcon: Image?
+    let actionTooltip: String?
     let action: (() -> Void)?
     
 }

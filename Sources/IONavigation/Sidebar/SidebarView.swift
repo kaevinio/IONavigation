@@ -11,8 +11,8 @@ struct SidebarView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            if let header = header {
-                SidebarHeader(header: header, color: foregroundColor, actionIcon: actionIcon, action: action)
+            if let header {
+                SidebarHeader(header: header, color: foregroundColor, actionIcon: actionIcon, actionTooltip: actionToolTip, action: action)
             }
             
             ScrollView(showsIndicators: false) {
@@ -50,6 +50,7 @@ struct SidebarView: View {
     let itemGroups: [ItemGroup]
     
     let actionIcon: Image?
+    let actionToolTip: String?
     let action: (() -> Void)?
     
 }

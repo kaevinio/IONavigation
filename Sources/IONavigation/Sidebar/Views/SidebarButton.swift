@@ -26,6 +26,7 @@ struct SidebarButton: View {
         .onHover { hovering in
             self.isHovering = hovering
         }
+        .help(tooltip ?? "")
     }
     
     
@@ -36,6 +37,7 @@ struct SidebarButton: View {
     
     let image: Image
     let color: Color
+    let tooltip: String?
     let action: () -> Void
     
 }

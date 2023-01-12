@@ -16,6 +16,7 @@ public struct Sidebar: View {
                 header: String? = nil,
                 itemGroups: [ItemGroup],
                 actionIcon: Image? = nil,
+                actionTooltip: String? = nil,
                 action: (() -> Void)? = nil) {
         
         self.minWindowWidth = minWindowWidth
@@ -27,6 +28,7 @@ public struct Sidebar: View {
         self.itemGroups = itemGroups
         
         self.actionIcon = actionIcon
+        self.actionTooltip = actionTooltip
         self.action = action
         
         _showSidebar = State(initialValue: sidebarShown)
@@ -41,6 +43,7 @@ public struct Sidebar: View {
                             header: header,
                             itemGroups: itemGroups,
                             actionIcon: actionIcon,
+                            actionToolTip: actionTooltip,
                             action: action)
                 .frame(maxHeight: .infinity)
                 .frame(width: Values.sidebarWidth)
@@ -93,6 +96,7 @@ public struct Sidebar: View {
     private var itemGroups: [ItemGroup]
     
     private let actionIcon: Image?
+    private let actionTooltip: String?
     private let action: (() -> Void)?
     
 }

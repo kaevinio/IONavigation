@@ -18,6 +18,7 @@ public struct BackItem: ViewModifier {
                 #else
                 .padding(.top, Values.middlePadding)
                 #endif
+                .help(tooltip ?? "")
             
             content
         }
@@ -34,6 +35,7 @@ public struct BackItem: ViewModifier {
     @State private var isHovering = false
     
     let color: Color
+    let tooltip: String?
     
     
     
@@ -48,7 +50,7 @@ public struct BackItem: ViewModifier {
 }
 
 extension View {
-    public func backItem(color: Color = .primary) -> some View {
-        modifier(BackItem(color: color))
+    public func backItem(color: Color = .primary, tooltip: String? = nil) -> some View {
+        modifier(BackItem(color: color, tooltip: tooltip))
     }
 }

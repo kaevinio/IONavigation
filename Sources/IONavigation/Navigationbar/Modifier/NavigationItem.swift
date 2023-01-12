@@ -14,14 +14,14 @@ public struct NavigationItem: ViewModifier {
             content
             
             Button(action: action) {
-                if let text = text {
+                if let text {
                     Text(text)
                         .font(.system(size: 16, weight: boldText ?? true ? .semibold : .regular))
                         .foregroundColor(color)
                         .padding(Values.middlePadding / 2)
                         .background(isHovering ? color.opacity(0.1) : color.opacity(0))
                         .cornerRadius(Values.cornerRadius)
-                } else if let image = image {
+                } else if let image {
                     image
                         .resizable()
                         .scaledToFit()
@@ -45,6 +45,7 @@ public struct NavigationItem: ViewModifier {
             .onHover { hovering in
                 self.isHovering = hovering
             }
+            .help(tooltip ?? "")
         }
     }
     
@@ -63,12 +64,13 @@ public struct NavigationItem: ViewModifier {
     let image: Image?
     let color: Color
     let disabled: Bool
+    let tooltip: String?
     let action: () -> Void
     
 }
 
 extension View {
-    public func navigationItem(text: String? = nil, boldText: Bool? = true, image: Image? = nil, color: Color = .primary, disabled: Bool = false, action: @escaping () -> Void) -> some View {
-        modifier(NavigationItem(text: text, boldText: boldText, image: image, color: color, disabled: disabled, action: action))
+    public func navigationItem(text: String? = nil, boldText: Bool? = true, image: Image? = nil, color: Color = .primary, disabled: Bool = false, tooltip: String? = nil, action: @escaping () -> Void) -> some View {
+        modifier(NavigationItem(text: text, boldText: boldText, image: image, color: color, disabled: disabled, tooltip: tooltip, action: action))
     }
 }
