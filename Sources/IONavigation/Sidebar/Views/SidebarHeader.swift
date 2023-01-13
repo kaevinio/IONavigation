@@ -17,8 +17,14 @@ struct SidebarHeader: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .frame(height: Values.navigationBarHeight)
                 
+                
                 if let actionIcon, let action {
-                    SidebarButton(image: actionIcon, color: color, tooltip: actionTooltip, action: action)
+                    if #available(macOS 12.3, *) {
+                        SidebarButton(image: actionIcon, color: color, tooltip: actionTooltip, action: action)
+                            .keyboardShortcut(actionShortcut)
+                    } else {
+                        SidebarButton(image: actionIcon, color: color, tooltip: actionTooltip, action: action)
+                    }
                 }
             }
             .padding(.leading, Values.minorPadding / 2)
@@ -39,6 +45,7 @@ struct SidebarHeader: View {
     
     let actionIcon: Image?
     let actionTooltip: String?
+    let actionShortcut: KeyboardShortcut?
     let action: (() -> Void)?
     
 }
