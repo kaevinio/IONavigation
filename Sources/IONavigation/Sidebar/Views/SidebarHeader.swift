@@ -10,7 +10,7 @@ import SwiftUI
 struct SidebarHeader: View {
     
     var body: some View {
-        if let header = header {
+        if let header {
             HStack(spacing: 0) {
                 Text(header)
                     .font(.system(size: Values.navigationTextSize, weight: .semibold))
@@ -19,7 +19,7 @@ struct SidebarHeader: View {
                 
                 
                 if let actionIcon, let action {
-                    if #available(macOS 12.3, *) {
+                    if #available(iOS 15.4, macOS 12.3, *) {
                         SidebarButton(image: actionIcon, color: color, tooltip: actionTooltip, action: action)
                             .keyboardShortcut(actionShortcut)
                     } else {
