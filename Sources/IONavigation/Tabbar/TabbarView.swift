@@ -13,19 +13,25 @@ struct TabbarView: View {
         VStack(spacing: Values.middlePadding / 2) {
             Divider()
                 .frame(height: 1)
-                .overlay(.gray.opacity(0.1))
+                .overlay(.gray.opacity(0.15))
             
-            HStack(spacing: 0) {
+            HStack(spacing: Values.minorPadding) {
                 ForEach(items, id: \.id) { item in
                     Button {
-                        self.selectedId = item.id
+                        withAnimation {
+                            self.selectedId = item.id
+                        }
                     } label: {
-                        TabbarItem(item: item, isSelected: selectedId == item.id, color: foregroundColor, style: style)
+                        TabbarItem(item: item,
+                                   isSelected: selectedId == item.id,
+                                   color: foregroundColor,
+                                   style: style)
                     }
                     .buttonStyle(.plain)
                 }
             }
-            .padding(.horizontal, Values.middlePadding)
+            .frame(maxWidth: .infinity)
+            .padding(.horizontal, Values.minorPadding)
         }
         #if os(iOS)
         .padding(.bottom, Values.middlePadding / 2 + safeAreaInsets.bottom)

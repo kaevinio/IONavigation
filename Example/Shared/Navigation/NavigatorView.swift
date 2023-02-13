@@ -14,9 +14,10 @@ struct NavigatorView: View {
         #if os(iOS)
         if horizontalSizeClass == .compact {
             Tabbar(items: tabbarItems,
+                   showTitle: false,
                    backgroundColor: Color("primaryBackground"),
                    foregroundColor: .blue,
-                   style: .rounded)
+                   style: .circle)
         } else {
             Sidebar(backgroundColor: Color("primaryBackground"),
                     foregroundColor: .blue,

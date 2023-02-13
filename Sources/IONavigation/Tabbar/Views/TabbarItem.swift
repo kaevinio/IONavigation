@@ -10,27 +10,33 @@ import SwiftUI
 struct TabbarItem: View {
     
     var body: some View {
-        HStack(alignment: .center) {
-            Spacer()
+        ZStack(alignment: .center) {
+            switch style {
+            case .circle:
+                Capsule()
+                    .foregroundColor(backgroundColor)
+            default:
+                RoundedRectangle(cornerRadius: style == .rounded ? Values.cornerRadius : 0)
+                    .foregroundColor(backgroundColor)
+            }
             
-            ZStack(alignment: .center) {
-                switch style {
-                case .circle:
-                    Circle()
-                        .foregroundColor(backgroundColor)
-                default:
-                    RoundedRectangle(cornerRadius: style == .rounded ? Values.cornerRadius : 0)
-                        .foregroundColor(backgroundColor)
-                }
+            HStack(spacing: 6) {
+                TabbarIcon(image: item.image, color: isSelected ? .white : .primary)
                 
-                TabbarIcon(image: item.image, color: isSelected ? .white : color)
+                if isSelected {
+                    Text(item.title)
+                        .foregroundColor(isSelected ? .white : .primary)
+                        .font(.headline)
+                }
             }
-            .frame(width: Values.itemSize, height: Values.itemSize)
-            .onHover { hovering in
-                self.isHovering = hovering
-            }
-            
-            Spacer()
+            .padding(.vertical, 6)
+            .padding(.horizontal, Values.minorPadding)
+        }
+        .frame(height: Values.itemSize)
+        .frame(minWidth: Values.buttonSize)
+        .fixedSize()
+        .onHover { hovering in
+            self.isHovering = hovering
         }
     }
     
