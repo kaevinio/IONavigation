@@ -11,6 +11,7 @@ public struct Sidebar: View {
     
     public init(minWindowWidth: CGFloat = 800,
                 minWindowHeight: CGFloat = 600,
+                backgroundTranslucency: Bool = true,
                 backgroundColor: Color,
                 foregroundColor: Color,
                 header: String? = nil,
@@ -23,6 +24,7 @@ public struct Sidebar: View {
         self.minWindowWidth = minWindowWidth
         self.minWindowHeight = minWindowHeight
         
+        self.backgroundTranslucency = backgroundTranslucency
         self.backgroundColor = backgroundColor
         self.foregroundColor = foregroundColor
         self.header = header
@@ -40,6 +42,7 @@ public struct Sidebar: View {
         HStack(spacing: 0) {
             if showSidebar {
                 SidebarView(selectedId: $sidebarSelection.selectedViewID,
+                            backgroundTranslucency: backgroundTranslucency,
                             backgroundColor: backgroundColor,
                             foregroundColor: foregroundColor,
                             header: header,
@@ -93,6 +96,7 @@ public struct Sidebar: View {
     let minWindowWidth: CGFloat
     let minWindowHeight: CGFloat
     
+    private let backgroundTranslucency: Bool
     private let backgroundColor: Color
     private let foregroundColor: Color
     private let header: String?
