@@ -28,11 +28,11 @@ Special thanks to **[SPACE SQUAD](https://www.spacesquad.de)** for backing this 
 
 
 ## 📖 Content
-- [Features](#features)
-- [Screenshots](#screenshots)
-- [Preview](#preview)
-- [Installation](#installation)
-- [How to Use](#how-to-use)
+- [Features](#-🪄-features)
+- [Screenshots](#-📱-screenshots)
+- [Preview](#-🎥-preview)
+- [Installation](#-🛠-installation)
+- [How to Use](#-📝-how-to-use)
 
 
 ## 🪄 Features
