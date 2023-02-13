@@ -20,6 +20,17 @@ struct SidebarItem: View {
                 .font(.system(size: 15))
                 #endif
                 .foregroundColor(isSelected ? item.selectionTextColor : item.defaultTitleColor)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            
+            if let detail = item.detail {
+                Text(detail)
+                    #if os(iOS)
+                    .font(.system(size: 16))
+                    #else
+                    .font(.system(size: 15))
+                    #endif
+                    .foregroundColor(isSelected ? item.selectionTextColor : item.defaultTitleColor)
+            }
         }
         .padding(.horizontal, Values.minorPadding)
         .frame(maxWidth: .infinity, alignment: .leading)

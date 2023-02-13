@@ -26,7 +26,11 @@ public struct Tabbar: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             
-            TabbarView(selectedId: $selectedId, items: items, backgroundColor: backgroundColor, foregroundColor: foregroundColor, style: style)
+            TabbarView(selectedId: $selectedId,
+                       items: items,
+                       backgroundColor: backgroundColor,
+                       foregroundColor: foregroundColor,
+                       style: style)
         }
         .ignoresSafeArea(.all, edges: .bottom)
         .onAppear {

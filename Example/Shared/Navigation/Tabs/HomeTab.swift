@@ -21,6 +21,15 @@ enum HomeTab: String, CaseIterable {
         }
     }
     
+    var detail: String {
+        switch self {
+        case .listen: return "1"
+        case .discover: return "2"
+        case .radio: return "3"
+        case .search: return "4"
+        }
+    }
+    
     var icon: Image {
         switch self {
         case .listen: return Image(systemName: "play.circle")
@@ -48,7 +57,12 @@ enum HomeTab: String, CaseIterable {
             LinearGradient(gradient: Gradient(colors: [.red, .orange]), startPoint: .topLeading, endPoint: .bottomTrailing))
         )
         
-        return HomeTab.allCases.map { Item(id: $0.rawValue, title: $0.title, image: $0.icon, selectionBackground: background, view: $0.view) }
+        return HomeTab.allCases.map { Item(id: $0.rawValue,
+                                           title: $0.title,
+                                           detail: $0.detail,
+                                           image: $0.icon,
+                                           selectionBackground: background,
+                                           view: $0.view) }
     }
     
 }

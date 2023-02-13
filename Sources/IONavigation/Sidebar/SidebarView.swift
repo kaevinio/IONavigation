@@ -30,7 +30,12 @@ struct SidebarView: View {
         .frame(maxWidth: .infinity)
         .padding(.horizontal, Values.middlePadding)
         #if os(macOS)
-        .translucentBackground()
+        .if(backgroundTranslucency) { sidebar in
+            sidebar.translucentBackground()
+        }
+        .if(!backgroundTranslucency) { sidebar in
+            sidebar.background(backgroundColor)
+        }
         #else
         .background(backgroundColor)
         #endif
@@ -43,6 +48,7 @@ struct SidebarView: View {
     
     @Binding public var selectedId: String
     
+    let backgroundTranslucency: Bool
     let backgroundColor: Color
     let foregroundColor: Color
     let header: String?

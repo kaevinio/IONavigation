@@ -11,6 +11,7 @@ public struct Item {
     
     public init(id: String,
                 title: String,
+                detail: String? = nil,
                 image: Image,
                 defaultTitleColor: Color = .primary,
                 selectionTextColor: Color = .white,
@@ -19,6 +20,7 @@ public struct Item {
         
         self.id = id
         self.title = title
+        self.detail = detail
         self.image = image
         self.defaultTitleColor = defaultTitleColor
         self.selectionTextColor = selectionTextColor
@@ -28,6 +30,7 @@ public struct Item {
     
     public let id: String
     public let title: String
+    public let detail: String?
     public let image: Image
     
     public let defaultTitleColor: Color
