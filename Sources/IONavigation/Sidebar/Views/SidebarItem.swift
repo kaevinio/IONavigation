@@ -22,14 +22,8 @@ struct SidebarItem: View {
                 .foregroundColor(isSelected ? item.selectionTextColor : item.defaultTitleColor)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
-            if let detail = item.detail {
-                Text(detail)
-                    #if os(iOS)
-                    .font(.system(size: 16))
-                    #else
-                    .font(.system(size: 15))
-                    #endif
-                    .foregroundColor(isSelected ? item.selectionTextColor : item.defaultTitleColor)
+            if let detailView = item.detailView {
+                detailView
             }
         }
         .padding(.horizontal, Values.minorPadding)
