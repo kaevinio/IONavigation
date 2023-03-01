@@ -18,7 +18,11 @@ struct TabbarView: View {
             HStack(spacing: Values.minorPadding) {
                 ForEach(items, id: \.id) { item in
                     Button {
-                        withAnimation {
+                        if animateSelection {
+                            withAnimation {
+                                self.selectedId = item.id
+                            }
+                        } else {
                             self.selectedId = item.id
                         }
                     } label: {
@@ -53,5 +57,6 @@ struct TabbarView: View {
     let backgroundColor: Color
     let foregroundColor: Color
     let style: TabStyle
+    let animateSelection: Bool
     
 }

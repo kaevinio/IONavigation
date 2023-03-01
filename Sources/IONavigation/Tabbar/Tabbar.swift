@@ -9,11 +9,12 @@ import SwiftUI
 
 public struct Tabbar: View {
     
-    public init(items: [Item], backgroundColor: Color, foregroundColor: Color, style: TabStyle) {
+    public init(items: [Item], backgroundColor: Color, foregroundColor: Color, style: TabStyle, animateSelection: Bool = true) {
         self.items = items
         self.backgroundColor = backgroundColor
         self.foregroundColor = foregroundColor
         self.style = style
+        self.animateSelection = animateSelection
     }
     
     public var body: some View {
@@ -30,7 +31,8 @@ public struct Tabbar: View {
                        items: items,
                        backgroundColor: backgroundColor,
                        foregroundColor: foregroundColor,
-                       style: style)
+                       style: style,
+                       animateSelection: animateSelection)
         }
         .ignoresSafeArea(.all, edges: .bottom)
         .onAppear {
@@ -50,5 +52,6 @@ public struct Tabbar: View {
     private let backgroundColor: Color
     private let foregroundColor: Color
     private let style: TabStyle
+    private let animateSelection: Bool
     
 }
