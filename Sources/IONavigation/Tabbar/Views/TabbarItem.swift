@@ -21,11 +21,11 @@ struct TabbarItem: View {
             }
             
             HStack(spacing: 6) {
-                TabbarIcon(image: item.image, color: isSelected ? .white : .primary)
+                TabbarIcon(image: item.image, color: isSelected ? item.selectionTextColor : .primary)
                 
                 if isSelected {
                     Text(item.title)
-                        .foregroundColor(isSelected ? .white : .primary)
+                        .foregroundColor(isSelected ? item.selectionTextColor : .primary)
                         .font(.headline)
                 }
             }
