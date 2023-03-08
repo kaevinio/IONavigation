@@ -9,10 +9,11 @@ import SwiftUI
 
 public struct Tabbar: View {
     
-    public init(items: [Item], backgroundColor: Color, foregroundColor: Color, style: TabStyle, animateSelection: Bool = true) {
+    public init(items: [Item], backgroundColor: Color, foregroundColor: Color, font: Font? = nil, style: TabStyle, animateSelection: Bool = true) {
         self.items = items
         self.backgroundColor = backgroundColor
         self.foregroundColor = foregroundColor
+        self.font = font
         self.style = style
         self.animateSelection = animateSelection
     }
@@ -31,6 +32,7 @@ public struct Tabbar: View {
                        items: items,
                        backgroundColor: backgroundColor,
                        foregroundColor: foregroundColor,
+                       font: font,
                        style: style,
                        animateSelection: animateSelection)
         }
@@ -51,6 +53,7 @@ public struct Tabbar: View {
     private let items: [Item]
     private let backgroundColor: Color
     private let foregroundColor: Color
+    private let font: Font?
     private let style: TabStyle
     private let animateSelection: Bool
     

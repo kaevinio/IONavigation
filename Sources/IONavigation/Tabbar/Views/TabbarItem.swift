@@ -26,7 +26,7 @@ struct TabbarItem: View {
                 if isSelected {
                     Text(item.title)
                         .foregroundColor(isSelected ? item.selectionTextColor : .primary)
-                        .font(.headline)
+                        .font(font)
                 }
             }
             .padding(.vertical, 6)
@@ -47,6 +47,7 @@ struct TabbarItem: View {
     @State private var isHovering = false
     
     let item: Item
+    let font: Font
     let isSelected: Bool
     let color: Color
     let style: TabStyle

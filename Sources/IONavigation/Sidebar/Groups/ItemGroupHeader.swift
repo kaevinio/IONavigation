@@ -13,6 +13,7 @@ struct ItemGroupHeader: View {
         Button(action: collapseGroup) {
             HStack(spacing: 0) {
                 Text(header)
+                    .font(font)
                     .padding(.leading, Values.middlePadding / 2)
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
@@ -36,6 +37,7 @@ struct ItemGroupHeader: View {
     @Binding var isCollapsed: Bool
     
     let header: String
+    let font: Font
     let isCollapsable: Bool
     
     

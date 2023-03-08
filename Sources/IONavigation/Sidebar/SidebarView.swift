@@ -12,7 +12,13 @@ struct SidebarView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             if let header {
-                SidebarHeader(header: header, color: foregroundColor, actionIcon: actionIcon, actionTooltip: actionTooltip, actionShortcut: actionShortcut, action: action)
+                SidebarHeader(header: header,
+                              font: headerFont ?? .system(size: Values.navigationTextSize, weight: .semibold),
+                              color: foregroundColor,
+                              actionIcon: actionIcon,
+                              actionTooltip: actionTooltip,
+                              actionShortcut: actionShortcut,
+                              action: action)
             }
             
             ScrollView(showsIndicators: false) {
@@ -20,6 +26,7 @@ struct SidebarView: View {
                     ForEach(itemGroups, id: \.id) { group in
                         ItemGroupView(selectedId: $selectedId,
                                       header: group.header,
+                                      font: itemFont ?? .system(size: 15),
                                       items: group.items,
                                       isCollapsable: group.isCollapsable)
                     }
@@ -52,8 +59,10 @@ struct SidebarView: View {
     let backgroundColor: Color
     let foregroundColor: Color
     let header: String?
+    let headerFont: Font?
     
     let itemGroups: [ItemGroup]
+    let itemFont: Font?
     
     let actionIcon: Image?
     let actionTooltip: String?

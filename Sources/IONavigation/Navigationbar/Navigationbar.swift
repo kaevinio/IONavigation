@@ -9,13 +9,14 @@ import SwiftUI
 
 public struct Navigationbar: View {
     
-    public init(title: String) {
+    public init(title: String, font: Font? = nil) {
         self.title = title
+        self.font = font
     }
     
     public var body: some View {
         Text(title)
-            .font(.system(size: Values.navigationTextSize, weight: .semibold))
+            .font(font ?? .system(size: Values.navigationTextSize, weight: .semibold))
             .frame(maxWidth: .infinity, alignment: .leading)
             .frame(height: Values.navigationBarHeight)
             .lineLimit(1)
@@ -35,6 +36,7 @@ public struct Navigationbar: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     #endif
     
-    public var title: String
+    private var title: String
+    private var font: Font?
     
 }

@@ -27,6 +27,7 @@ struct TabbarView: View {
                         }
                     } label: {
                         TabbarItem(item: item,
+                                   font: font ?? .headline,
                                    isSelected: selectedId == item.id,
                                    color: foregroundColor,
                                    style: style)
@@ -56,6 +57,7 @@ struct TabbarView: View {
     let items: [Item]
     let backgroundColor: Color
     let foregroundColor: Color
+    let font: Font?
     let style: TabStyle
     let animateSelection: Bool
     

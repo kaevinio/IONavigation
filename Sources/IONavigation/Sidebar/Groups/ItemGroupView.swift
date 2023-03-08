@@ -14,6 +14,7 @@ struct ItemGroupView: View {
             if let header = header {
                 ItemGroupHeader(isCollapsed: $isCollapsed,
                                 header: header,
+                                font: font,
                                 isCollapsable: isCollapsable)
             }
             
@@ -24,6 +25,7 @@ struct ItemGroupView: View {
                             self.selectedId = item.id
                         } label: {
                             SidebarItem(item: item,
+                                        font: font,
                                         isSelected: selectedId == item.id)
                         }
                         .buttonStyle(.plain)
@@ -42,6 +44,7 @@ struct ItemGroupView: View {
     @State var isCollapsed = false
     
     let header: String?
+    let font: Font
     let items: [Item]
     let isCollapsable: Bool
     

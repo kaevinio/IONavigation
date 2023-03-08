@@ -15,7 +15,9 @@ public struct Sidebar: View {
                 backgroundColor: Color,
                 foregroundColor: Color,
                 header: String? = nil,
+                headerFont: Font? = nil,
                 itemGroups: [ItemGroup],
+                itemFont: Font? = nil,
                 actionIcon: Image? = nil,
                 actionTooltip: String? = nil,
                 actionShortcut: KeyboardShortcut? = nil,
@@ -28,7 +30,9 @@ public struct Sidebar: View {
         self.backgroundColor = backgroundColor
         self.foregroundColor = foregroundColor
         self.header = header
+        self.headerFont = headerFont
         self.itemGroups = itemGroups
+        self.itemFont = itemFont
         
         self.actionIcon = actionIcon
         self.actionTooltip = actionTooltip
@@ -46,7 +50,9 @@ public struct Sidebar: View {
                             backgroundColor: backgroundColor,
                             foregroundColor: foregroundColor,
                             header: header,
+                            headerFont: headerFont,
                             itemGroups: itemGroups,
+                            itemFont: itemFont,
                             actionIcon: actionIcon,
                             actionTooltip: actionTooltip,
                             actionShortcut: actionShortcut,
@@ -100,7 +106,9 @@ public struct Sidebar: View {
     private let backgroundColor: Color
     private let foregroundColor: Color
     private let header: String?
-    private var itemGroups: [ItemGroup]
+    private let headerFont: Font?
+    private let itemGroups: [ItemGroup]
+    private let itemFont: Font?
     
     private let actionIcon: Image?
     private let actionTooltip: String?

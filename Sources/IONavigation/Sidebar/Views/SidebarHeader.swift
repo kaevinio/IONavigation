@@ -13,7 +13,7 @@ struct SidebarHeader: View {
         if let header {
             HStack(spacing: 0) {
                 Text(header)
-                    .font(.system(size: Values.navigationTextSize, weight: .semibold))
+                    .font(font)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .frame(height: Values.navigationBarHeight)
                 
@@ -41,6 +41,7 @@ struct SidebarHeader: View {
     // MARK: - Variables
     
     let header: String?
+    let font: Font
     let color: Color
     
     let actionIcon: Image?

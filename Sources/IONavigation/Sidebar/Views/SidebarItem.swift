@@ -14,11 +14,7 @@ struct SidebarItem: View {
             SidebarIcon(image: item.image, color: isSelected ? item.selectionTextColor : item.defaultTitleColor)
             
             Text(item.title)
-                #if os(iOS)
-                .font(.system(size: 16))
-                #else
-                .font(.system(size: 15))
-                #endif
+                .font(font)
                 .foregroundColor(isSelected ? item.selectionTextColor : item.defaultTitleColor)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
@@ -45,6 +41,7 @@ struct SidebarItem: View {
     @State private var isHovering = false
     
     let item: Item
+    let font: Font
     let isSelected: Bool
     
 }
