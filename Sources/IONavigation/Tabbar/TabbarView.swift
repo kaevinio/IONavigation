@@ -16,7 +16,7 @@ struct TabbarView: View {
                 .overlay(.gray.opacity(0.15))
             
             HStack(spacing: Values.minorPadding) {
-                ForEach(items, id: \.id) { item in
+                ForEach(items) { item in
                     Button {
                         if animateSelection {
                             withAnimation {

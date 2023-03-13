@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct ItemGroup {
+public struct ItemGroup: Identifiable {
     
     public init(id: String, header: String? = nil, items: [Item], isCollapsable: Bool = true) {
         self.id = id

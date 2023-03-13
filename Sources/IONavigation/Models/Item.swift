@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct Item {
+public struct Item: Identifiable{
     
     public init(id: String,
                 title: String,

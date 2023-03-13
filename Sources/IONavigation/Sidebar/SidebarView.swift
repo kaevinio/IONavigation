@@ -23,7 +23,7 @@ struct SidebarView: View {
             
             ScrollView(showsIndicators: false) {
                 VStack(spacing: Values.majorPadding) {
-                    ForEach(itemGroups, id: \.id) { group in
+                    ForEach(itemGroups) { group in
                         ItemGroupView(selectedId: $selectedId,
                                       header: group.header,
                                       font: itemFont ?? .system(size: 15),

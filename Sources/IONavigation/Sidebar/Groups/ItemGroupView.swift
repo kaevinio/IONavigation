@@ -20,7 +20,7 @@ struct ItemGroupView: View {
             
             if !isCollapsed {
                 VStack(spacing: Values.middlePadding / 3) {
-                    ForEach(items, id: \.id) { item in
+                    ForEach(items) { item in
                         Button {
                             self.selectedId = item.id
                         } label: {
