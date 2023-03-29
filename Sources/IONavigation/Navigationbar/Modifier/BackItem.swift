@@ -11,7 +11,7 @@ public struct BackItem: ViewModifier {
     
     public func body(content: Content) -> some View {
         HStack(alignment: .bottom, spacing: 0) {
-            NavigationBarButton(icon: Image(systemName: "chevron.left"), color: color, action: goBack)
+            NavigationBarButton(icon: Image(systemName: "chevron.left"), font: font, color: color, action: goBack)
                 #if os(iOS)
                 .padding(.top, horizontalSizeClass == .compact ? 0 : Values.minorPadding)
                 .padding(.trailing, horizontalSizeClass == .compact ? -Values.minorPadding : 0)
@@ -34,6 +34,7 @@ public struct BackItem: ViewModifier {
     
     @State private var isHovering = false
     
+    let font: Font
     let color: Color
     let tooltip: String?
     
@@ -50,7 +51,7 @@ public struct BackItem: ViewModifier {
 }
 
 extension View {
-    public func backItem(color: Color = .primary, tooltip: String? = nil) -> some View {
-        modifier(BackItem(color: color, tooltip: tooltip))
+    public func backItem(font: Font = .headline, color: Color = .primary, tooltip: String? = nil) -> some View {
+        modifier(BackItem(font: font, color: color, tooltip: tooltip))
     }
 }

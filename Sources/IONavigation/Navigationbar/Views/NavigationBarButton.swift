@@ -12,9 +12,8 @@ struct NavigationBarButton: View {
     var body: some View {
         Button(action: action) {
             icon
-                .resizable()
-                .scaledToFit()
-                .foregroundColor(.primary)
+                .font(font)
+                .foregroundColor(color)
                 .frame(width: Values.navigationItemSize, height: Values.navigationItemSize)
                 .padding(Values.middlePadding / 2)
                 .background(isHovering ? color.opacity(0.1) : .clear)
@@ -36,6 +35,7 @@ struct NavigationBarButton: View {
     @State private var isHovering = false
     
     let icon: Image
+    let font: Font
     let color: Color
     let action: () -> Void
     

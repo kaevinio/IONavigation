@@ -13,11 +13,11 @@ public struct SidebarToggle: ViewModifier {
         HStack(alignment: .bottom, spacing: 0) {
             #if os(iOS)
             if horizontalSizeClass == .regular {
-                NavigationBarButton(icon: Image(systemName: "sidebar.squares.leading"), color: color, action: toggleSidebar)
+                NavigationBarButton(icon: Image(systemName: "sidebar.squares.leading"), font: .headline, color: color, action: toggleSidebar)
                     .padding(.top, horizontalSizeClass == .compact ? 0 : Values.minorPadding)
             }
             #else
-            NavigationBarButton(icon: Image(systemName: "sidebar.squares.leading"), color: color, action: toggleSidebar)
+            NavigationBarButton(icon: Image(systemName: "sidebar.squares.leading"), font: .headline, color: color, action: toggleSidebar)
                 .padding(.top, Values.middlePadding)
             #endif
             
