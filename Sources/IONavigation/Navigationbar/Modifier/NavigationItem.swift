@@ -13,39 +13,37 @@ public struct NavigationItem: ViewModifier {
         HStack(alignment: .bottom, spacing: 0) {
             content
             
-            Button(action: action) {
-                if let text {
+            if let text {
+                Button(action: action) {
                     Text(text)
-                        .font(.system(size: 16, weight: boldText ?? true ? .semibold : .regular))
+                        .font(font)
                         .foregroundColor(color)
-                        .padding(Values.middlePadding / 2)
-                        .background(isHovering ? color.opacity(0.1) : color.opacity(0))
-                        .cornerRadius(Values.cornerRadius)
-                } else if let image {
-                    image
-                        .resizable()
-                        .scaledToFit()
-                        .foregroundColor(color)
-                        .frame(width: Values.navigationItemSize, height: Values.navigationItemSize)
                         .padding(Values.middlePadding / 2)
                         .background(isHovering ? color.opacity(0.1) : color.opacity(0))
                         .cornerRadius(Values.cornerRadius)
                 }
+                .frame(height: Values.navigationBarHeight)
+                .padding(.trailing, Values.minorPadding)
+                .disabled(disabled)
+                .buttonStyle(.plain)
+                .fixedSize()
+                #if os(iOS)
+                .padding(.top, horizontalSizeClass == .compact ? 0 : Values.minorPadding)
+                #else
+                .padding(.top, Values.middlePadding)
+                #endif
+                .onHover { isHovering = $0 }
+                .help(tooltip ?? "")
+            } else if let image {
+                NavigationBarButton(icon: image, font: font, color: color, action: action)
+                    .padding(.trailing, Values.minorPadding)
+                    #if os(iOS)
+                    .padding(.top, horizontalSizeClass == .compact ? 0 : Values.minorPadding)
+                    #else
+                    .padding(.top, Values.middlePadding)
+                    #endif
+                    .help(tooltip ?? "")
             }
-            .frame(height: Values.navigationBarHeight)
-            .padding(.trailing, Values.minorPadding)
-            .disabled(disabled)
-            .buttonStyle(.plain)
-            .fixedSize()
-            #if os(iOS)
-            .padding(.top, horizontalSizeClass == .compact ? 0 : Values.minorPadding)
-            #else
-            .padding(.top, Values.middlePadding)
-            #endif
-            .onHover { hovering in
-                self.isHovering = hovering
-            }
-            .help(tooltip ?? "")
         }
     }
     
@@ -60,7 +58,7 @@ public struct NavigationItem: ViewModifier {
     @State private var isHovering = false
     
     let text: String?
-    let boldText: Bool?
+    let font: Font
     let image: Image?
     let color: Color
     let disabled: Bool
@@ -70,7 +68,7 @@ public struct NavigationItem: ViewModifier {
 }
 
 extension View {
-    public func navigationItem(text: String? = nil, boldText: Bool? = true, image: Image? = nil, color: Color = .primary, disabled: Bool = false, tooltip: String? = nil, action: @escaping () -> Void) -> some View {
-        modifier(NavigationItem(text: text, boldText: boldText, image: image, color: color, disabled: disabled, tooltip: tooltip, action: action))
+    public func navigationItem(text: String? = nil, font: Font = .title2, image: Image? = nil, color: Color = .primary, disabled: Bool = false, tooltip: String? = nil, action: @escaping () -> Void) -> some View {
+        modifier(NavigationItem(text: text, font: font, image: image, color: color, disabled: disabled, tooltip: tooltip, action: action))
     }
 }

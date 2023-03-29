@@ -19,6 +19,7 @@ struct Values {
     static let sidebarWidth: CGFloat = 275
     
     static let navigationBarHeight: CGFloat = 44
+    static let navigationBarItemWidth: CGFloat = 30
     static let navigationItemSize: CGFloat = 16
     static let navigationTextSize: CGFloat = 18
     
@@ -38,6 +39,7 @@ struct Values {
     
     static let compactNavigationBarHeight: CGFloat = 44
     static let navigationBarHeight: CGFloat = 60
+    static let navigationBarItemWidth: CGFloat = 36
     static let navigationItemSize: CGFloat = 20
     static let navigationTextSize: CGFloat = 24
     

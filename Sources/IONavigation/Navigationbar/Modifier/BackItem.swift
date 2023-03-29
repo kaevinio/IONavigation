@@ -12,6 +12,7 @@ public struct BackItem: ViewModifier {
     public func body(content: Content) -> some View {
         HStack(alignment: .bottom, spacing: 0) {
             NavigationBarButton(icon: Image(systemName: "chevron.left"), font: font, color: color, action: goBack)
+                .padding(.leading, Values.minorPadding)
                 #if os(iOS)
                 .padding(.top, horizontalSizeClass == .compact ? 0 : Values.minorPadding)
                 .padding(.trailing, horizontalSizeClass == .compact ? -Values.minorPadding : 0)
@@ -51,7 +52,7 @@ public struct BackItem: ViewModifier {
 }
 
 extension View {
-    public func backItem(font: Font = .headline, color: Color = .primary, tooltip: String? = nil) -> some View {
+    public func backItem(font: Font = .title2, color: Color = .primary, tooltip: String? = nil) -> some View {
         modifier(BackItem(font: font, color: color, tooltip: tooltip))
     }
 }

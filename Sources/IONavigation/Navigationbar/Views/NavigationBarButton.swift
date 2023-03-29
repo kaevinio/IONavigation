@@ -20,12 +20,8 @@ struct NavigationBarButton: View {
                 .cornerRadius(Values.cornerRadius)
         }
         .buttonStyle(.plain)
-        .frame(height: Values.navigationBarHeight)
-        .padding(.leading, Values.minorPadding)
-        .frame(width: Values.navigationBarHeight)
-        .onHover { hovering in
-            self.isHovering = hovering
-        }
+        .frame(width: Values.navigationBarItemWidth, height: Values.navigationBarHeight)
+        .onHover { isHovering = $0 }
     }
     
     

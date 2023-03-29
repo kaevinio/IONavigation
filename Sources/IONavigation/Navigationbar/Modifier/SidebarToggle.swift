@@ -13,8 +13,10 @@ public struct SidebarToggle: ViewModifier {
         HStack(alignment: .bottom, spacing: 0) {
             #if os(iOS)
             if horizontalSizeClass == .regular {
-                NavigationBarButton(icon: Image(systemName: "sidebar.squares.leading"), font: .headline, color: color, action: toggleSidebar)
+                NavigationBarButton(icon: Image(systemName: "sidebar.squares.leading"), font: font, color: color, action: toggleSidebar)
+                
                     .padding(.top, horizontalSizeClass == .compact ? 0 : Values.minorPadding)
+                    .padding(.leading, Values.minorPadding)
             }
             #else
             NavigationBarButton(icon: Image(systemName: "sidebar.squares.leading"), font: .headline, color: color, action: toggleSidebar)
@@ -33,6 +35,7 @@ public struct SidebarToggle: ViewModifier {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     #endif
     
+    let font: Font
     let color: Color
     
     
@@ -48,7 +51,7 @@ public struct SidebarToggle: ViewModifier {
 }
 
 extension View {
-    public func sidebarToggle(color: Color) -> some View {
-        modifier(SidebarToggle(color: color))
+    public func sidebarToggle(font: Font = .title2, color: Color) -> some View {
+        modifier(SidebarToggle(font: font, color: color))
     }
 }
