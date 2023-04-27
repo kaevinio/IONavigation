@@ -14,13 +14,15 @@ public struct SidebarToggle: ViewModifier {
             #if os(iOS)
             if horizontalSizeClass == .regular {
                 NavigationBarButton(icon: Image(systemName: "sidebar.squares.leading"), font: font, color: color, action: toggleSidebar)
-                
-                    .padding(.top, horizontalSizeClass == .compact ? 0 : Values.minorPadding)
                     .padding(.leading, Values.minorPadding)
+                    .padding(.top, horizontalSizeClass == .compact ? 0 : Values.minorPadding)
+                    .padding(.trailing, horizontalSizeClass == .compact ? -Values.minorPadding : 0)
             }
             #else
-            NavigationBarButton(icon: Image(systemName: "sidebar.squares.leading"), font: .headline, color: color, action: toggleSidebar)
+            NavigationBarButton(icon: Image(systemName: "sidebar.squares.leading"), font: font, color: color, action: toggleSidebar)
+                .padding(.leading, Values.minorPadding)
                 .padding(.top, Values.middlePadding)
+                .help(tooltip ?? "")
             #endif
             
             content
@@ -37,6 +39,7 @@ public struct SidebarToggle: ViewModifier {
     
     let font: Font
     let color: Color
+    let tooltip: String?
     
     
     
@@ -51,7 +54,7 @@ public struct SidebarToggle: ViewModifier {
 }
 
 extension View {
-    public func sidebarToggle(font: Font = .title2, color: Color) -> some View {
-        modifier(SidebarToggle(font: font, color: color))
+    public func sidebarToggle(font: Font = .title2, color: Color = .primary, tooltip: String? = nil) -> some View {
+        modifier(SidebarToggle(font: font, color: color, tooltip: tooltip))
     }
 }

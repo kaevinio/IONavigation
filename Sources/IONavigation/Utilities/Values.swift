@@ -16,7 +16,7 @@ struct Values {
     
     static let cornerRadius: CGFloat = 8
     
-    static let sidebarWidth: CGFloat = 275
+    static let sidebarWidth: CGFloat = 250
     
     static let navigationBarHeight: CGFloat = 44
     static let navigationBarItemWidth: CGFloat = 30
@@ -35,7 +35,7 @@ struct Values {
     
     static let cornerRadius: CGFloat = 8
     
-    static let sidebarWidth: CGFloat = 275
+    static let sidebarWidth: CGFloat = 250
     
     static let compactNavigationBarHeight: CGFloat = 44
     static let navigationBarHeight: CGFloat = 60
