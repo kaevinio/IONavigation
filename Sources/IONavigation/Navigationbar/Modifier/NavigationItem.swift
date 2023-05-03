@@ -24,7 +24,6 @@ public struct NavigationItem: ViewModifier {
                 }
                 .frame(height: Values.navigationBarHeight)
                 .padding(.trailing, Values.minorPadding)
-                .disabled(disabled)
                 .buttonStyle(.plain)
                 .fixedSize()
                 #if os(iOS)
@@ -34,6 +33,7 @@ public struct NavigationItem: ViewModifier {
                 #endif
                 .onHover { isHovering = $0 }
                 .help(tooltip ?? "")
+                .disabled(disabled)
             } else if let image {
                 NavigationBarButton(icon: image, font: font, color: color, action: action)
                     .padding(.trailing, Values.minorPadding)
@@ -43,6 +43,7 @@ public struct NavigationItem: ViewModifier {
                     .padding(.top, Values.middlePadding)
                     #endif
                     .help(tooltip ?? "")
+                    .disabled(disabled)
             }
         }
     }

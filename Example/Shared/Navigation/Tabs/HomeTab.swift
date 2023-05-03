@@ -59,7 +59,7 @@ enum HomeTab: String, CaseIterable {
         
         return HomeTab.allCases.map { Item(id: $0.rawValue,
                                            title: $0.title,
-                                           detail: $0.detail,
+                                           detailView: AnyView(Text($0.detail)),
                                            image: $0.icon,
                                            selectionBackground: background,
                                            view: $0.view) }

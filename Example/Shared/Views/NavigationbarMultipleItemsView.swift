@@ -16,10 +16,8 @@ struct NavigationbarMultipleItemsView: View {
                 .navigationItem(image: Image(systemName: "heart.fill"), color: .blue, action: {})
                 .navigationItem(image: Image(systemName: "bookmark.fill"), color: .blue, action: {})
             
-            ScrollView {
-                Text("Hello, world!")
-                    .padding()
-            }
+            Text("Hello, world!")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         .background(Color("primaryBackground"))

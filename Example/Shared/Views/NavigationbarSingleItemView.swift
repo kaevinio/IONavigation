@@ -12,16 +12,26 @@ struct NavigationbarSingleItemView: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            Navigationbar(title: "Single Item")
+            Navigationbar(titleItem: AnyView(navigationTitleItem))
                 .navigationItem(image: Image(systemName: "star.fill"), color: .blue, action: {})
             
-            ScrollView {
-                Text("Hello, world!")
-                    .padding()
-            }
+            Text("Hello, world!")
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         .background(Color("primaryBackground"))
+    }
+    
+    private var navigationTitleItem: some View {
+        HStack(alignment: .bottom, spacing: 12) {
+            Text("Title")
+            
+            Text(Date(), style: .date)
+                .font(.subheadline)
+                .foregroundColor(.gray)
+        }
+        .padding(.vertical, 4)
+        .padding(.horizontal, 12)
     }
     
 }

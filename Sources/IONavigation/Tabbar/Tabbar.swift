@@ -20,7 +20,7 @@ public struct Tabbar: View {
     
     public var body: some View {
         VStack(spacing: 0) {
-            if let view = items.filter { $0.id == selectedId }.first?.view {
+            if let view = items.filter({ $0.id == selectedId }).first?.view {
                 view
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
