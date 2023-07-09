@@ -87,6 +87,9 @@ public struct Sidebar: View {
                 self.sidebarSelection.selectedViewID = self.itemGroups.first?.items.first?.id ?? ""
             }
         }
+        .onChange(of: itemGroups.first?.items) { newItems in
+             self.sidebarSelection.selectedViewID = newItems?.first?.id ?? ""
+        }
         .onChange(of: sidebarShown) { value in
             withAnimation(.easeInOut(duration: 0.2)) {
                 showSidebar = value
