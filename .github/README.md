@@ -24,7 +24,6 @@ I really appreciate you **[buying me a coffee ☕️](https://ko-fi.com/kaevin)*
 ## Content
 - [Features](#features)
 - [Screenshots](#screenshots)
-- [Preview](#preview)
 - [Installation](#installation)
 - [How to Use](#how-to-use)
 
@@ -51,10 +50,6 @@ I really appreciate you **[buying me a coffee ☕️](https://ko-fi.com/kaevin)*
 
 #### iOS
 <img src="assets/README-iphone_1_navigation.png" width="300"> <img src="assets/README-iphone_2_multiple.png" width="300">
-
-
-## Preview
-<video src="https://user-images.githubusercontent.com/95750332/199588478-cc3bb161-07d0-4da1-8d42-6ce66d0718f6.mov" width="600">|
 
 
 
