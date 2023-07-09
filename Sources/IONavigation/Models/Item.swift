@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct Item: Identifiable{
+public struct Item: Identifiable, Equatable {
     
     public init(id: String,
                 title: String,
@@ -26,6 +26,10 @@ public struct Item: Identifiable{
         self.selectionTextColor = selectionTextColor
         self.selectionBackground = selectionBackground
         self.view = view
+    }
+    
+    public static func == (lhs: Item, rhs: Item) -> Bool {
+        lhs.id == rhs.id
     }
     
     public let id: String

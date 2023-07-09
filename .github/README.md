@@ -11,12 +11,6 @@ If you, or your company, use any of my projects or like what I'm doing, kindly c
 I really appreciate you **[buying me a coffee ☕️](https://ko-fi.com/kaevin)**
 
 
-#### Sponsors
-
-Special thanks to **[SPACE SQUAD](https://www.spacesquad.de)** for backing this project! They make great software with ♥️ in Berlin.
-
-<img src="assets/README-spacesquad_logo_full.png" width="120">
-
 ---
 
 ### Let's Connect
