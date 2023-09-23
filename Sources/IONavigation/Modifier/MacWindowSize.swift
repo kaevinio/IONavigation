@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 public struct MacWindowSize: ViewModifier {
     
     public func body(content: Content) -> some View {
@@ -19,7 +18,7 @@ public struct MacWindowSize: ViewModifier {
     
     
     
-    // MARK: - Varibles
+    // MARK: - Variables
     
     let minWidth: CGFloat
     let maxWidth: CGFloat
@@ -29,7 +28,7 @@ public struct MacWindowSize: ViewModifier {
 }
 
 extension View {
-    public func macWindowSize(minWidth: CGFloat = 800, maxWidth: CGFloat = .infinity, minHeight: CGFloat = 600, maxHeight: CGFloat = .infinity) -> some View {
+    public func macWindowSize(minWidth: CGFloat = 400, maxWidth: CGFloat = .infinity, minHeight: CGFloat = 400, maxHeight: CGFloat = .infinity) -> some View {
         modifier(MacWindowSize(minWidth: minWidth, maxWidth: maxWidth, minHeight: minHeight, maxHeight: maxHeight))
     }
 }
