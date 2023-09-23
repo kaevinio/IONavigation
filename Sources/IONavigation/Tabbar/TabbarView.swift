@@ -20,17 +20,18 @@ struct TabbarView: View {
                     Button {
                         if animateSelection {
                             withAnimation {
-                                self.selectedId = item.id
+                                selectedId = item.id
                             }
                         } else {
-                            self.selectedId = item.id
+                            selectedId = item.id
                         }
                     } label: {
                         TabbarItem(item: item,
                                    font: font ?? .headline,
                                    isSelected: selectedId == item.id,
                                    color: foregroundColor,
-                                   style: style)
+                                   style: style,
+                                   animateSelection: animateSelection)
                     }
                     .buttonStyle(.plain)
                 }
