@@ -12,7 +12,7 @@ struct TabbarItem: View {
     var body: some View {
         ZStack(alignment: .center) {
             switch style {
-            case .circular:
+            case .circle:
                 Capsule()
                     .foregroundColor(backgroundColor)
             default:
@@ -35,11 +35,7 @@ struct TabbarItem: View {
         .frame(height: Values.itemSize)
         .frame(minWidth: Values.buttonSize)
         .fixedSize()
-        .onHover { self.isHovering = $0 }
-        .transaction { transaction in
-            guard !animateSelection else { return }
-            transaction.animation = nil
-        }
+        .onHover { isHovering = $0 }
     }
     
     
@@ -53,7 +49,6 @@ struct TabbarItem: View {
     let isSelected: Bool
     let color: Color
     let style: TabStyle
-    let animateSelection: Bool
     
     
     

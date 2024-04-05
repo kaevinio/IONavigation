@@ -7,13 +7,11 @@
 
 import SwiftUI
 
-
 public struct Translucency: ViewModifier {
     
     public func body(content: Content) -> some View {
         content
             #if os(macOS)
-            .padding(.top, Values.middlePadding)
             .background(TranslucentView(material: .sidebar))
             .ignoresSafeArea(.all)
             #endif
