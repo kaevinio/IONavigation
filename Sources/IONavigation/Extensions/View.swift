@@ -16,4 +16,11 @@ extension View {
             self
         }
     }
+    
+    @ViewBuilder
+    public func setupTabItem(_ item: Item) -> some View {
+        self
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .tag(item.id)
+    }
 }

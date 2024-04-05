@@ -9,22 +9,30 @@ import SwiftUI
 
 struct TabbarView: View {
     
+    // MARK: - Properties
+    
+    @Binding var selectedId: String
+    
+    let items: [Item]
+    let backgroundColor: Color
+    let foregroundColor: Color
+    let font: Font?
+    let style: TabStyle
+    
+    
+    
+    // MARK: - Body
+    
     var body: some View {
         VStack(spacing: Values.middlePadding / 2) {
             Divider()
                 .frame(height: 1)
-                .overlay(.gray.opacity(0.15))
+                .opacity(0)
             
             HStack(spacing: Values.minorPadding) {
                 ForEach(items) { item in
                     Button {
-                        if animateSelection {
-                            withAnimation {
-                                self.selectedId = item.id
-                            }
-                        } else {
-                            self.selectedId = item.id
-                        }
+                        selectedId = item.id
                     } label: {
                         TabbarItem(item: item,
                                    font: font ?? .headline,
@@ -38,27 +46,7 @@ struct TabbarView: View {
             .frame(maxWidth: .infinity)
             .padding(.horizontal, Values.minorPadding)
         }
-        #if os(iOS)
-        .padding(.bottom, Values.middlePadding / 2 + safeAreaInsets.bottom)
-        #endif
         .background(backgroundColor)
     }
-    
-    
-    
-    // MARK: - Variables
-    
-    #if os(iOS)
-    @Environment(\.safeAreaInsets) private var safeAreaInsets
-    #endif
-    
-    @Binding var selectedId: String
-    
-    let items: [Item]
-    let backgroundColor: Color
-    let foregroundColor: Color
-    let font: Font?
-    let style: TabStyle
-    let animateSelection: Bool
     
 }

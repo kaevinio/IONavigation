@@ -1,4 +1,4 @@
-// swift-tools-version: 5.6
+// swift-tools-version: 5.9
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "IONavigation",
     platforms: [
-        .iOS(.v15),
+        .iOS(.v16),
         .macOS(.v12)
     ],
     products: [
@@ -14,10 +14,6 @@ let package = Package(
         .library(
             name: "IONavigation",
             targets: ["IONavigation"]),
-    ],
-    dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
     ],
     targets: [
         .target(

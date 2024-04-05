@@ -35,9 +35,7 @@ struct TabbarItem: View {
         .frame(height: Values.itemSize)
         .frame(minWidth: Values.buttonSize)
         .fixedSize()
-        .onHover { hovering in
-            self.isHovering = hovering
-        }
+        .onHover { isHovering = $0 }
     }
     
     
