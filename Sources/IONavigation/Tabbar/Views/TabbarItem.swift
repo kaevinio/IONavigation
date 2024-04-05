@@ -12,7 +12,7 @@ struct TabbarItem: View {
     var body: some View {
         ZStack(alignment: .center) {
             switch style {
-            case .circle:
+            case .capsule:
                 Capsule()
                     .foregroundColor(backgroundColor)
             default:
