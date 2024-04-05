@@ -17,7 +17,7 @@ struct NavigatorView: View {
                    showTitle: false,
                    backgroundColor: Color("primaryBackground"),
                    foregroundColor: .blue,
-                   style: .circle)
+                   style: .circular)
         } else {
             Sidebar(backgroundColor: Color("primaryBackground"),
                     foregroundColor: .blue,

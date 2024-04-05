@@ -8,5 +8,5 @@
 import Foundation
 
 public enum TabStyle {
-    case circle, rounded, corners
+    case circular, rounded, corners
 }
