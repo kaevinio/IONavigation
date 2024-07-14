@@ -9,6 +9,28 @@ import SwiftUI
 
 struct SidebarView: View {
     
+    // MARK: - Properties
+    
+    @Binding public var selectedId: String
+    
+    let backgroundTranslucency: Bool
+    let backgroundColor: Color
+    let foregroundColor: Color
+    let header: String?
+    let headerFont: Font?
+    
+    let itemGroups: [ItemGroup]
+    let itemFont: Font?
+    
+    let actionIcon: Image?
+    let actionTooltip: String?
+    let actionShortcut: KeyboardShortcut?
+    let action: (() -> Void)?
+    
+    
+    
+    // MARK: - Body
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             if let header {
@@ -47,26 +69,5 @@ struct SidebarView: View {
         .background(backgroundColor)
         #endif
     }
-    
-    
-    
-    // MARK: - Variables
-    
-    
-    @Binding public var selectedId: String
-    
-    let backgroundTranslucency: Bool
-    let backgroundColor: Color
-    let foregroundColor: Color
-    let header: String?
-    let headerFont: Font?
-    
-    let itemGroups: [ItemGroup]
-    let itemFont: Font?
-    
-    let actionIcon: Image?
-    let actionTooltip: String?
-    let actionShortcut: KeyboardShortcut?
-    let action: (() -> Void)?
     
 }

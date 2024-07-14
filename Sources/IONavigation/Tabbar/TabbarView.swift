@@ -11,13 +11,7 @@ struct TabbarView: View {
     
     // MARK: - Properties
     
-    @Binding var selectedId: String
-    
-    let items: [Item]
-    let backgroundColor: Color
-    let foregroundColor: Color
-    let font: Font?
-    let style: TabStyle
+    @ObservedObject var tabbarViewModel: TabbarViewModel
     
     
     
@@ -30,15 +24,16 @@ struct TabbarView: View {
                 .opacity(0)
             
             HStack(spacing: Values.minorPadding) {
-                ForEach(items) { item in
+                ForEach(tabbarViewModel.items) { item in
                     Button {
-                        selectedId = item.id
+                        tabbarViewModel.selectItem(item)
                     } label: {
                         TabbarItem(item: item,
-                                   font: font ?? .headline,
-                                   isSelected: selectedId == item.id,
-                                   color: foregroundColor,
-                                   style: style)
+                                   font: tabbarViewModel.font ?? .headline,
+                                   isSelected: tabbarViewModel.selectedItem == item,
+                                   itemColor: tabbarViewModel.itemColor,
+                                   itemTintColor: tabbarViewModel.itemTintColor,
+                                   style: tabbarViewModel.style)
                     }
                     .buttonStyle(.plain)
                 }
@@ -46,7 +41,7 @@ struct TabbarView: View {
             .frame(maxWidth: .infinity)
             .padding(.horizontal, Values.minorPadding)
         }
-        .background(backgroundColor)
+        .background(tabbarViewModel.barColor)
     }
     
 }

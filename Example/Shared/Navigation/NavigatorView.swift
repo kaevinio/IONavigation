@@ -10,12 +10,23 @@ import IONavigation
 
 struct NavigatorView: View {
     
+    // MARK: - Properties
+    
+    #if os(iOS)
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    #endif
+    
+    
+    
+    // MARK: - Body
+    
     var body: some View {
         #if os(iOS)
         if horizontalSizeClass == .compact {
             Tabbar(items: tabbarItems,
-                   backgroundColor: Color("primaryBackground"),
-                   foregroundColor: .blue,
+                   barColor: Color("primaryBackground"),
+                   itemColor: .blue,
+                   itemTintColor: .white,
                    style: .capsule)
         } else {
             Sidebar(backgroundColor: Color("primaryBackground"),
@@ -34,16 +45,6 @@ struct NavigatorView: View {
                 action: add)
         #endif
     }
-    
-    
-    
-    // MARK: - Variables
-    
-    #if os(iOS)
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
-    #endif
-    
-    @State var shouldShowNewApp = false
     
     
     

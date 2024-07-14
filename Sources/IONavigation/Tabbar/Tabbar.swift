@@ -11,44 +11,26 @@ public struct Tabbar: View {
     
     // MARK: - Properties
     
-    @State private var selectedId = ""
-    
-    private let items: [Item]
-    private let backgroundColor: Color
-    private let foregroundColor: Color
-    private let font: Font?
-    private let style: TabStyle
+    @StateObject private var tabbarViewModel: TabbarViewModel
     
     
     
     // MARK: - Init
     
-    public init(items: [Item], backgroundColor: Color, foregroundColor: Color, font: Font? = nil, style: TabStyle) {
-        self.items = items
-        self.backgroundColor = backgroundColor
-        self.foregroundColor = foregroundColor
-        self.font = font
-        self.style = style
+    public init(items: [Item], barColor: Color, itemColor: Color, itemTintColor: Color, font: Font? = nil, style: TabStyle) {
+        self._tabbarViewModel = StateObject(wrappedValue: TabbarViewModel(items: items, barColor: barColor, itemColor: itemColor, itemTintColor: itemTintColor, font: font, style: style))
     }
     
     public var body: some View {
         ZStack(alignment: .bottom) {
-            TabView(selection: $selectedId) {
-                ForEach(items) { item in
+            TabView(selection: $tabbarViewModel.selectedItem) {
+                ForEach(tabbarViewModel.items) { item in
                     item.view
                         .setupTabItem(item)
                 }
             }
             
-            TabbarView(selectedId: $selectedId,
-                       items: items,
-                       backgroundColor: backgroundColor,
-                       foregroundColor: foregroundColor,
-                       font: font,
-                       style: style)
-            .onAppear {
-                selectedId = items.first?.id ?? ""
-            }
+            TabbarView(tabbarViewModel: tabbarViewModel)
         }
     }
     
