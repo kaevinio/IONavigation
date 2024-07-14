@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-public struct Item: Identifiable, Equatable {
+public struct Item: Identifiable {
     
     public init(id: String,
                 title: String,
                 detailView: AnyView? = nil,
                 image: Image,
                 defaultTitleColor: Color = .primary,
-                selectionTextColor: Color = .white,
+                selectionTextColor: Color = .primary,
                 selectionBackground: AnyView = AnyView(Color.blue),
                 view: AnyView) {
         
@@ -28,9 +28,7 @@ public struct Item: Identifiable, Equatable {
         self.view = view
     }
     
-    public static func == (lhs: Item, rhs: Item) -> Bool {
-        lhs.id == rhs.id
-    }
+    
     
     public let id: String
     public let title: String
@@ -43,4 +41,14 @@ public struct Item: Identifiable, Equatable {
     
     public let view: AnyView // The view to be shown needs to be wrapped in 'AnyView' as a 'View' cannot be passed in SwiftUI
     
+}
+
+extension Item: Equatable, Hashable {
+    public static func == (lhs: Item, rhs: Item) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(0)
+    }
 }

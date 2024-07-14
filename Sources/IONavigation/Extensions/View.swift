@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension View {
+extension View {    
     @ViewBuilder
     public func `if`<Content: View>(_ condition: Bool, transform: (Self) -> Content) -> some View {
         if condition {
@@ -21,6 +21,6 @@ extension View {
     public func setupTabItem(_ item: Item) -> some View {
         self
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .tag(item.id)
+            .tag(item)
     }
 }

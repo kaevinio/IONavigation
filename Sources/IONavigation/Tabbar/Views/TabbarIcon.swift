@@ -9,6 +9,15 @@ import SwiftUI
 
 struct TabbarIcon: View {
     
+    // MARK: - Properties
+    
+    let image: Image
+    let color: Color
+    
+    
+    
+    // MARK: - Body
+    
     var body: some View {
         image
             .resizable()
@@ -17,12 +26,5 @@ struct TabbarIcon: View {
             .frame(width: Values.iconSize, height: Values.iconSize)
             .foregroundColor(color)
     }
-    
-    
-    
-    // MARK: - Variables
-    
-    let image: Image
-    let color: Color
     
 }

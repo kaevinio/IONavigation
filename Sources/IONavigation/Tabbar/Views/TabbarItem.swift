@@ -9,6 +9,32 @@ import SwiftUI
 
 struct TabbarItem: View {
     
+    // MARK: - Properties
+    
+    @State private var isHovering = false
+    
+    let item: Item
+    let font: Font
+    let isSelected: Bool
+    let itemColor: Color
+    let itemTintColor: Color
+    let style: TabStyle
+    
+    
+    var backgroundColor: Color {
+        if isSelected {
+            return itemColor
+        } else if isHovering && !isSelected {
+            return itemColor.opacity(0.2)
+        } else {
+            return .clear
+        }
+    }
+    
+    
+    
+    // MARK: - Body
+    
     var body: some View {
         ZStack(alignment: .center) {
             switch style {
@@ -21,14 +47,14 @@ struct TabbarItem: View {
             }
             
             HStack(spacing: 6) {
-                TabbarIcon(image: item.image, color: isSelected ? item.selectionTextColor : .primary)
+                TabbarIcon(image: item.image, color: isSelected ? itemTintColor : item.selectionTextColor)
                 
                 if isSelected {
                     Text(item.title)
-                        .foregroundColor(isSelected ? item.selectionTextColor : .primary)
-                        .font(font)
+                        .foregroundColor(isSelected ? itemTintColor : item.selectionTextColor)
                 }
             }
+            .font(font)
             .padding(.vertical, 6)
             .padding(.horizontal, Values.minorPadding)
         }
@@ -36,32 +62,6 @@ struct TabbarItem: View {
         .frame(minWidth: Values.buttonSize)
         .fixedSize()
         .onHover { isHovering = $0 }
-    }
-    
-    
-    
-    // MARK: - Variables
-    
-    @State private var isHovering = false
-    
-    let item: Item
-    let font: Font
-    let isSelected: Bool
-    let color: Color
-    let style: TabStyle
-    
-    
-    
-    // MARK: - Computed Properties
-    
-    var backgroundColor: Color {
-        if isSelected {
-            return color
-        } else if isHovering && !isSelected {
-            return color.opacity(0.2)
-        } else {
-            return .clear
-        }
     }
     
 }

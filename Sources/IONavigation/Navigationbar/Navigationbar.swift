@@ -9,12 +9,31 @@ import SwiftUI
 
 public struct Navigationbar: View {
     
+    // MARK: - Properties
+    
+    #if os(iOS)
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    #endif
+    
+    private var title: String?
+    private var titleItem: AnyView?
+    private var font: Font?
+    private var color: Color
+    
+    
+    
+    // MARK: - Init
+    
     public init(titleItem: AnyView? = nil, title: String? = nil, font: Font? = nil, color: Color = .primary) {
         self.titleItem = titleItem
         self.title = title
         self.font = font
         self.color = color
     }
+    
+    
+    
+    // MARK: - Body
     
     public var body: some View {
         Group {
@@ -38,18 +57,5 @@ public struct Navigationbar: View {
         .padding(.top, Values.middlePadding)
         #endif
     }
-    
-    
-    
-    // MARK: - Variables
-    
-    #if os(iOS)
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
-    #endif
-    
-    private var title: String?
-    private var titleItem: AnyView?
-    private var font: Font?
-    private var color: Color
     
 }
