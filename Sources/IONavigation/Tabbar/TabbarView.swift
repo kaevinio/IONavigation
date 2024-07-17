@@ -13,6 +13,10 @@ struct TabbarView: View {
     
     @ObservedObject var tabbarViewModel: TabbarViewModel
     
+    let barColor: Color
+    let itemColor: Color
+    let itemTintColor: Color
+    
     
     
     // MARK: - Body
@@ -31,8 +35,8 @@ struct TabbarView: View {
                         TabbarItem(item: item,
                                    font: tabbarViewModel.font ?? .headline,
                                    isSelected: tabbarViewModel.selectedItem == item,
-                                   itemColor: tabbarViewModel.itemColor,
-                                   itemTintColor: tabbarViewModel.itemTintColor,
+                                   itemColor: itemColor,
+                                   itemTintColor: itemTintColor,
                                    style: tabbarViewModel.style)
                     }
                     .buttonStyle(.plain)
@@ -41,7 +45,7 @@ struct TabbarView: View {
             .frame(maxWidth: .infinity)
             .padding(.horizontal, Values.minorPadding)
         }
-        .background(tabbarViewModel.barColor)
+        .background(barColor)
     }
     
 }

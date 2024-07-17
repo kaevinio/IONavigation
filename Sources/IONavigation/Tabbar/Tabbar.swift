@@ -13,12 +13,20 @@ public struct Tabbar: View {
     
     @StateObject private var tabbarViewModel: TabbarViewModel
     
+    private let barColor: Color
+    private let itemColor: Color
+    private let itemTintColor: Color
+    
     
     
     // MARK: - Init
     
     public init(items: [Item], barColor: Color, itemColor: Color, itemTintColor: Color, font: Font? = nil, style: TabStyle) {
-        self._tabbarViewModel = StateObject(wrappedValue: TabbarViewModel(items: items, barColor: barColor, itemColor: itemColor, itemTintColor: itemTintColor, font: font, style: style))
+        self._tabbarViewModel = StateObject(wrappedValue: TabbarViewModel(items: items, font: font, style: style))
+        
+        self.barColor = barColor
+        self.itemColor = itemColor
+        self.itemTintColor = itemTintColor
     }
     
     public var body: some View {
@@ -30,7 +38,7 @@ public struct Tabbar: View {
                 }
             }
             
-            TabbarView(tabbarViewModel: tabbarViewModel)
+            TabbarView(tabbarViewModel: tabbarViewModel, barColor: barColor, itemColor: itemColor, itemTintColor: itemTintColor)
         }
     }
     
