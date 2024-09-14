@@ -11,20 +11,30 @@ struct TabbarIcon: View {
     
     // MARK: - Properties
     
-    let image: Image
+    let item: Item
     let color: Color
+    let isAnimated: Bool
     
     
     
     // MARK: - Body
     
     var body: some View {
-        image
-            .resizable()
-            .renderingMode(.template)
-            .scaledToFit()
-            .frame(width: Values.iconSize, height: Values.iconSize)
-            .foregroundColor(color)
+        Group {
+            if #available(iOS 17.0, *) {
+                item.image
+                    .resizable()
+                    .renderingMode(.template)
+                    .symbolEffect(.bounce, value: isAnimated)
+            } else {
+                item.image
+                    .resizable()
+                    .renderingMode(.template)
+            }
+        }
+        .scaledToFit()
+        .frame(width: Values.iconSize, height: Values.iconSize)
+        .foregroundColor(color)
     }
     
 }

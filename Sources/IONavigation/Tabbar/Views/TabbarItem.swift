@@ -11,17 +11,21 @@ struct TabbarItem: View {
     
     // MARK: - Properties
     
+    @EnvironmentObject private var tabbarViewModel: TabbarViewModel
+    
     @State private var isHovering = false
+    @State private var isAnimated = false
     
     let item: Item
-    let font: Font
-    let isSelected: Bool
     let itemColor: Color
     let itemTintColor: Color
-    let style: TabStyle
     
     
-    var backgroundColor: Color {
+    private var isSelected: Bool {
+        tabbarViewModel.selectedItem == item
+    }
+    
+    private var backgroundColor: Color {
         if isSelected {
             return itemColor
         } else if isHovering && !isSelected {
@@ -37,31 +41,36 @@ struct TabbarItem: View {
     
     var body: some View {
         ZStack(alignment: .center) {
-            switch style {
+            switch tabbarViewModel.style {
             case .capsule:
                 Capsule()
-                    .foregroundColor(backgroundColor)
+                    .foregroundStyle(backgroundColor)
             default:
-                RoundedRectangle(cornerRadius: style == .rounded ? Values.cornerRadius : 0)
-                    .foregroundColor(backgroundColor)
+                RoundedRectangle(cornerRadius: tabbarViewModel.style == .rounded ? Values.cornerRadius : 0)
+                    .foregroundStyle(backgroundColor)
             }
             
-            HStack(spacing: 6) {
-                TabbarIcon(image: item.image, color: isSelected ? itemTintColor : item.selectionTextColor)
+            HStack(spacing: Values.minorPadding / 2) {
+                TabbarIcon(item: item, color: isSelected ? itemTintColor : item.selectionTextColor, isAnimated: tabbarViewModel.withAnimation ? isAnimated : false)
                 
                 if isSelected {
                     Text(item.title)
-                        .foregroundColor(isSelected ? itemTintColor : item.selectionTextColor)
+                        .foregroundStyle(isSelected ? itemTintColor : item.selectionTextColor)
                 }
             }
-            .font(font)
-            .padding(.vertical, 6)
+            .font(tabbarViewModel.font)
+            .padding(.vertical, Values.middlePadding / 4)
             .padding(.horizontal, Values.minorPadding)
         }
         .frame(height: Values.itemSize)
-        .frame(minWidth: Values.buttonSize)
+        .frame(minWidth: Values.itemSize)
         .fixedSize()
         .onHover { isHovering = $0 }
+        .transaction { $0.animation = nil }
+        .onChange(of: tabbarViewModel.selectedItem) { newValue in
+            guard item == newValue else { return }
+            isAnimated.toggle()
+        }
     }
     
 }

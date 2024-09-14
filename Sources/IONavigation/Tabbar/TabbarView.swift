@@ -11,7 +11,11 @@ struct TabbarView: View {
     
     // MARK: - Properties
     
-    @ObservedObject var tabbarViewModel: TabbarViewModel
+    #if os(iOS)
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    #endif
+    
+    @EnvironmentObject private var tabbarViewModel: TabbarViewModel
     
     let barColor: Color
     let itemColor: Color
@@ -25,19 +29,14 @@ struct TabbarView: View {
         VStack(spacing: Values.middlePadding / 2) {
             Divider()
                 .frame(height: 1)
-                .opacity(0)
+                .opacity(horizontalSizeClass == .compact ? 0 : 1)
             
-            HStack(spacing: Values.minorPadding) {
+            HStack(spacing: horizontalSizeClass == .compact ? Values.minorPadding / 2 : Values.majorPadding) {
                 ForEach(tabbarViewModel.items) { item in
                     Button {
                         tabbarViewModel.selectItem(item)
                     } label: {
-                        TabbarItem(item: item,
-                                   font: tabbarViewModel.font ?? .headline,
-                                   isSelected: tabbarViewModel.selectedItem == item,
-                                   itemColor: itemColor,
-                                   itemTintColor: itemTintColor,
-                                   style: tabbarViewModel.style)
+                        TabbarItem(item: item, itemColor: itemColor, itemTintColor: itemTintColor)
                     }
                     .buttonStyle(.plain)
                 }

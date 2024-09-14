@@ -21,8 +21,8 @@ public struct Tabbar: View {
     
     // MARK: - Init
     
-    public init(items: [Item], barColor: Color, itemColor: Color, itemTintColor: Color, font: Font? = nil, style: TabStyle) {
-        self._tabbarViewModel = StateObject(wrappedValue: TabbarViewModel(items: items, font: font, style: style))
+    public init(items: [Item], barColor: Color, itemColor: Color, itemTintColor: Color, font: Font? = nil, style: TabStyle, withAnimation: Bool = true) {
+        self._tabbarViewModel = StateObject(wrappedValue: TabbarViewModel(items: items, font: font, style: style, withAnimation: withAnimation))
         
         self.barColor = barColor
         self.itemColor = itemColor
@@ -38,7 +38,8 @@ public struct Tabbar: View {
                 }
             }
             
-            TabbarView(tabbarViewModel: tabbarViewModel, barColor: barColor, itemColor: itemColor, itemTintColor: itemTintColor)
+            TabbarView(barColor: barColor, itemColor: itemColor, itemTintColor: itemTintColor)
+                .environmentObject(tabbarViewModel)
         }
     }
     
