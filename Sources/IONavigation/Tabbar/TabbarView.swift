@@ -21,6 +21,14 @@ struct TabbarView: View {
     let itemColor: Color
     let itemTintColor: Color
     
+    private var spacing: CGFloat {
+        #if os(iOS)
+        horizontalSizeClass == .compact ? Values.minorPadding / 2 : Values.majorPadding
+        #else
+        Values.majorPadding
+        #endif
+    }
+    
     
     
     // MARK: - Body
@@ -29,9 +37,11 @@ struct TabbarView: View {
         VStack(spacing: Values.middlePadding / 2) {
             Divider()
                 .frame(height: 1)
+                #if os(iOS)
                 .opacity(horizontalSizeClass == .compact ? 0 : 1)
+                #endif
             
-            HStack(spacing: horizontalSizeClass == .compact ? Values.minorPadding / 2 : Values.majorPadding) {
+            HStack(spacing: spacing) {
                 ForEach(tabbarViewModel.items) { item in
                     Button {
                         tabbarViewModel.selectItem(item)

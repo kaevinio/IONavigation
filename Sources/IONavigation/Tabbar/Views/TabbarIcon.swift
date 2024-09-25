@@ -25,7 +25,9 @@ struct TabbarIcon: View {
                 item.image
                     .resizable()
                     .renderingMode(.template)
+                    #if os(iOS)
                     .symbolEffect(.bounce, value: isAnimated)
+                    #endif
             } else {
                 item.image
                     .resizable()

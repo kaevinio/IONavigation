@@ -28,7 +28,7 @@ public struct MacWindowSize: ViewModifier {
 }
 
 extension View {
-    public func macWindowSize(minWidth: CGFloat = 400, maxWidth: CGFloat = .infinity, minHeight: CGFloat = 400, maxHeight: CGFloat = .infinity) -> some View {
+    public func macWindowSize(minWidth: CGFloat = 200, maxWidth: CGFloat = .infinity, minHeight: CGFloat = 200, maxHeight: CGFloat = .infinity) -> some View {
         modifier(MacWindowSize(minWidth: minWidth, maxWidth: maxWidth, minHeight: minHeight, maxHeight: maxHeight))
     }
 }
