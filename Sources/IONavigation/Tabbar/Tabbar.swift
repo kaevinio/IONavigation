@@ -11,6 +11,10 @@ public struct Tabbar: View {
     
     // MARK: - Properties
     
+    #if os(iOS)
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    #endif
+    
     @StateObject private var tabbarViewModel: TabbarViewModel
     
     private let barColor: Color
@@ -29,17 +33,40 @@ public struct Tabbar: View {
         self.itemTintColor = itemTintColor
     }
     
+    
+    
+    // MARK: - Body
+    
     public var body: some View {
         ZStack(alignment: .bottom) {
             TabView(selection: $tabbarViewModel.selectedItem) {
                 ForEach(tabbarViewModel.items) { item in
-                    item.view
-                        .setupTabItem(item)
+                    if #available(iOS 18, *) {
+                        item.view
+                            .if(horizontalSizeClass == .regular) { tabItem in
+                                tabItem.tabItem {
+                                    Text(item.title)
+                                }
+                            }
+                            .setupTabItem(item)
+                    } else {
+                        item.view
+                            .setupTabItem(item)
+                    }
                 }
             }
             
-            TabbarView(barColor: barColor, itemColor: itemColor, itemTintColor: itemTintColor)
-                .environmentObject(tabbarViewModel)
+            #if os(iOS)
+            if #available(iOS 18, *) {
+                if horizontalSizeClass == .compact {
+                    TabbarView(barColor: barColor, itemColor: itemColor, itemTintColor: itemTintColor)
+                        .environmentObject(tabbarViewModel)
+                }
+            } else {
+                TabbarView(barColor: barColor, itemColor: itemColor, itemTintColor: itemTintColor)
+                    .environmentObject(tabbarViewModel)
+            }
+            #endif
         }
     }
     
