@@ -41,6 +41,7 @@ public struct Tabbar: View {
         ZStack(alignment: .bottom) {
             TabView(selection: $tabbarViewModel.selectedItem) {
                 ForEach(tabbarViewModel.items) { item in
+                    #if os(iOS)
                     if #available(iOS 18, *) {
                         item.view
                             .if(horizontalSizeClass == .regular) { tabItem in
@@ -53,6 +54,10 @@ public struct Tabbar: View {
                         item.view
                             .setupTabItem(item)
                     }
+                    #else
+                    item.view
+                        .setupTabItem(item)
+                    #endif
                 }
             }
             
